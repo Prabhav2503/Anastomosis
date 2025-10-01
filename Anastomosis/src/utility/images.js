@@ -5,6 +5,7 @@ import edciitd from "../assets/edciitd.svg";
 import iitdbuilding from "../assets/iitdbuilding.svg";
 import aiimsbuilding from "../assets/aiimsbuilding.svg";
 import runningperson from "../assets/runningperson.svg";
+import Spacerobot from "../assets/Spacerobot.svg";
 
 export const images = {
     anastomosis:anastomosis,
@@ -13,5 +14,6 @@ export const images = {
     iitdbuilding:iitdbuilding,
     aiimsbuilding:aiimsbuilding,
     // edcaiims:edcaiims,
-    runningperson:runningperson
+    runningperson:runningperson,
+    Spacerobot:Spacerobot
 }
