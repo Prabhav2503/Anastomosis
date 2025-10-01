@@ -1,0 +1,18 @@
+import LandingPage from './pages/landingpage';
+import Homepage from './pages/Homepage.jsx';
+import Navbar from './components/navbar';
+
+import {images} from "./utility/images"
+
+export default function App() {
+  return (
+    <div>
+      <div style={{background: 'linear-gradient(to bottom, #082BEF 0%, #051259 100%)'}}>
+      <Navbar images={images} />
+      <LandingPage images={images} />
+    </div>
+    <Homepage images={images} />
+    </div>
+    
+  );
+}
