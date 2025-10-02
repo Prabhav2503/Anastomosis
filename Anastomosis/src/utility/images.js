@@ -14,6 +14,7 @@ import recieve from "../assets/recieve.svg";
 import building from "../assets/building.svg";
 import day1bg from "../assets/day1bg.svg";
 import day2bg from "../assets/day2bg.svg";  
+import videolink from "../assets/videolink.svg";
 
 export const images = {
     anastomosis:anastomosis,
@@ -31,5 +32,6 @@ export const images = {
     receive:recieve,
     building:building,
     day1bg:day1bg,
-    day2bg:day2bg
+    day2bg:day2bg,
+    videolink:videolink
 }
