@@ -15,6 +15,10 @@ import building from "../assets/building.svg";
 import day1bg from "../assets/day1bg.svg";
 import day2bg from "../assets/day2bg.svg";  
 import videolink from "../assets/videolink.svg";
+import phase1 from "../assets/phase1.svg";
+import phase2 from "../assets/phase2.svg";
+import phase3 from "../assets/phase3.svg";
+import phase4 from "../assets/phase4.svg";  
 
 export const images = {
     anastomosis:anastomosis,
@@ -33,5 +37,9 @@ export const images = {
     building:building,
     day1bg:day1bg,
     day2bg:day2bg,
-    videolink:videolink
+    videolink:videolink,
+    phase1:phase1,
+    phase2:phase2,
+    phase3:phase3,
+    phase4:phase4
 }
