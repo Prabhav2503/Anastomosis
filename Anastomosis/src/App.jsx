@@ -3,6 +3,7 @@ import Homepage from './pages/Homepage.jsx';
 import Navbar from './components/navbar';
 import Infopage from './pages/Infopage.jsx';
 import Whypage from "./pages/whypage.jsx";
+import AgendaPage from "./pages/agenda.jsx"
 
 import {images} from "./utility/images"
 
@@ -16,6 +17,7 @@ export default function App() {
     <Homepage images={images} />
     <Infopage images={images} />
     <Whypage images={images} />
+    <AgendaPage images={images} />
     </div>
     
   );

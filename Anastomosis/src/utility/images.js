@@ -11,6 +11,9 @@ import meet from "../assets/meet.svg";
 import explore from "../assets/explore.svg";
 import win from "../assets/win.svg";
 import recieve from "../assets/recieve.svg";    
+import building from "../assets/building.svg";
+import day1bg from "../assets/day1bg.svg";
+import day2bg from "../assets/day2bg.svg";  
 
 export const images = {
     anastomosis:anastomosis,
@@ -25,5 +28,8 @@ export const images = {
     meet:meet,
     explore:explore,
     win:win,
-    receive:recieve
+    receive:recieve,
+    building:building,
+    day1bg:day1bg,
+    day2bg:day2bg
 }
