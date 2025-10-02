@@ -5,7 +5,7 @@ const PhasesPage = ({ images }) => {
   return (
     <div className="w-full h-full p-6 flex flex-wrap gap-6 flex-col items-center bg-gradient-to-tr from-[#082BEF] to-[#051259]">
       <div className="flex items-center gap-6">
-        <img src={images.phase1} alt="Phase 1" className="hidden md:flex" />
+        <img src={images.phase1} alt="Phase 1" className="w-32 md:w-64 xl:w-full" />
         <PhaseCard
           steps={[
             "Your journey begins here — register online and open the door to India’s top innovation and medical campuses.",
@@ -25,10 +25,10 @@ const PhasesPage = ({ images }) => {
           ]}
           highlight="This is your first step toward national-level recognition and hands-on exposure."
         />
-        <img src={images.phase2} alt="Phase 2" className="hidden md:flex" />
+        <img src={images.phase2} alt="Phase 2" className="w-32 md:w-64 xl:w-full" />
       </div>
       <div className="flex items-center gap-6">
-        <img src={images.phase3} alt="Phase 3" className="" />
+        <img src={images.phase3} alt="Phase 3" className="w-32 md:w-64 xl:w-full" />
         <PhaseCard
           steps={[
             "Your journey begins here — register online and open the door to India’s top innovation and medical campuses.",
@@ -48,7 +48,7 @@ const PhasesPage = ({ images }) => {
           ]}
           highlight="This is your first step toward national-level recognition and hands-on exposure."
         />
-        <img src={images.phase4} alt="Phase 4" className="" />
+        <img src={images.phase4} alt="Phase 4" className="w-32 md:w-56 xl:w-full" />
       </div>
     </div>
   );
