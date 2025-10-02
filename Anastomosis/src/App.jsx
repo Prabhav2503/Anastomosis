@@ -8,7 +8,7 @@ import Glimpse from "./pages/glimpse.jsx"
 import RegistrationPage from './pages/registeration.jsx';
 import Phases from "./pages/phases.jsx";
 
-import {images} from "./utility/images"
+import {images, galleryImages} from "./utility/images"
 
 export default function App() {
   return (
@@ -22,7 +22,7 @@ export default function App() {
     <Whypage images={images} />
         <Phases images={images} />
     <AgendaPage images={images} />
-    {/* <Glimpse images={images} /> */}
+    <Glimpse galleryImages={galleryImages} images={images} />
 
     </div>
     
