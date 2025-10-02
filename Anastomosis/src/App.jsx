@@ -7,6 +7,7 @@ import AgendaPage from "./pages/agenda.jsx"
 import Glimpse from "./pages/glimpse.jsx"
 import RegistrationPage from './pages/registeration.jsx';
 import Phases from "./pages/phases.jsx";
+import Footer from "./components/footer.jsx"
 
 import {images, galleryImages} from "./utility/images"
 
@@ -23,6 +24,7 @@ export default function App() {
         <Phases images={images} />
     <AgendaPage images={images} />
     <Glimpse galleryImages={galleryImages} images={images} />
+    <Footer images={images} />
 
     </div>
     
