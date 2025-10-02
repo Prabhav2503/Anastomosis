@@ -5,6 +5,7 @@ import Infopage from './pages/Infopage.jsx';
 import Whypage from "./pages/whypage.jsx";
 import AgendaPage from "./pages/agenda.jsx"
 import Glimpse from "./pages/glimpse.jsx"
+import RegistrationPage from './pages/registeration.jsx';
 
 import {images} from "./utility/images"
 
@@ -20,6 +21,7 @@ export default function App() {
     <Whypage images={images} />
     <AgendaPage images={images} />
     <Glimpse images={images} />
+    <RegistrationPage images={images} />
     </div>
     
   );
