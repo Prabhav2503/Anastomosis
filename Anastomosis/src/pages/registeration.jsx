@@ -3,15 +3,17 @@ import React from "react";
 const RegistrationPage = ({ images }) => {
   return (
     <div
-      className="w-full h-full p-6 bg-cover bg-center"
+      className="w-full h-full bg-cover bg-center"
       style={{ backgroundImage: `url(${images.day1bg})` }}
     >
+      <div style={{background: 'linear-gradient(to bottom, #082BEF 0%, #051259 100%)'}} 
+      className="w-full h-25"></div>
       <div className="w-full h-full flex items-center justify-center">
         <div
           style={{
             background: "linear-gradient(to bottom, #082BEF 0%, #051259 100%)",
           }}
-          className="w-[80%] h-auto mt-15 p-8 rounded-lg shadow-lg"
+          className="w-[80%] h-auto mt-15 p-8 rounded-lg shadow-lg p-6"
         >
           <h1 className="text-4xl font-bold text-white mb-6 text-center">
             Registrations Open!! 📋
