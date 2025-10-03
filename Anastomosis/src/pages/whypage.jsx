@@ -5,7 +5,7 @@ const WhyJoinPage = ({images}) => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center p-6">
       <header className='flex flex-col items-center mb-8'>
-        <h1 className='text-3xl mb-3 font-bold text-blue-600'>Why JOIN?</h1>
+        <h1 className='text-5xl mb-3 font-bold text-blue-600'>Why JOIN?</h1>
         <p className="text-center text-lg text-gray-800 mt-2">
           <b>Spend 2 exciting days</b> at <b>IIT Delhi</b> and <b>AIIMS Delhi, India’s top institutes</b>, and get a rare  chance to see <b>innovation in action.</b>
         </p>
