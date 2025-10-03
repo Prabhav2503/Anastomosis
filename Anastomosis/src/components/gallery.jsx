@@ -16,8 +16,8 @@ const GalleryCarousel = ({ galleryImages }) => {
           gap: '1rem',  // Gap between slides
           pagination: false, // Show dots
           arrows: true,     // Show navigation arrows
-          autoplay: false,   // Auto-play (optional)
-          interval: 3000,   // 3 seconds interval for autoplay
+          autoplay: true,   // Auto-play (optional)
+          interval: 2000,   // 3 seconds interval for autoplay
           breakpoints: {
             640: { perPage: 1 }, // 1 slide on mobile
             768: { perPage: 2 }, // 2 slides on tablet
