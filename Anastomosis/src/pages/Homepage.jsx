@@ -4,7 +4,7 @@ import Buildingcard from '../components/buildingcard';
 const HomePage = ({ images }) => {
   return (
     <div className="w-full h-full bg-gray-100">
-        <h1 className=" w-full bg-white p-4 text-5xl font-bold text-blue-600 text-center">eDC IITD & eDC AIMS</h1>
+        <h1 className=" w-full bg-white p-4 text-3xl md:text-5xl font-bold text-blue-600 text-center">eDC IITD & eDC AIMS</h1>
       <main className="flex flex-col md:flex-row items-center justify-center  p-6">
         <Buildingcard
           image={images.iitdbuilding}

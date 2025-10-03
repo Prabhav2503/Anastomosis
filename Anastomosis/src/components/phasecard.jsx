@@ -2,7 +2,7 @@ import React from "react";
 
 const PhaseCard = ({ step1, step2, step3, highlight, bg1, bg2, bg3 }) => {
   return (
-    <div className="flex flex-col md:flex-row items-stretch justify-center rounded-lg bg-white gap-5 p-6 shadow-lg">
+    <div className="flex flex-col md:flex-row items-stretch justify-center rounded-lg bg-white gap-5 p-6 shadow-lg w-full">
       {/* Step 1 */}
       <div className={`flex items-center justify-center flex-1 p-6 rounded-lg ${bg1}`}>
         <p className="text-black text-center text-sm md:text-base lg:text-lg">

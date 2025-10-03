@@ -49,11 +49,11 @@ export const Day1Page = ({ images }) => {
             alt="IIT Delhi Building"
             className="w-12 h-12 object-contain"
           />
-          <h1 className="text-3xl text-blue-600 font-bold">Day 1: IIT Delhi Engineering & Entrepreneurship</h1>
+          <h1 className="w-full text-3xl text-blue-600 font-bold">Day 1: IIT Delhi Engineering & Entrepreneurship</h1>
       </header>
 
       {/* Activities Grid */}
-      <div className="flex flex-wrap gap-10 justify-items-center px-6">
+      <div className="flex flex-wrap gap-10 w-full justify-center items-center px-6">
         {activities.map((activity) => (
           <Card
             key={activity.number}
@@ -106,7 +106,7 @@ export const Day2Page = ({ images }) => {
       </header>
 
       {/* Activities Grid */}
-      <div className="flex flex-wrap gap-10 justify-items-center px-6">
+      <div className="flex flex-wrap gap-10 justify-center items-center px-6">
         {activities.map((activity) => (
           <Card
             key={activity.number}

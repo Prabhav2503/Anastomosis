@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const Navbar = ({ images }) => {
   return (
     <nav
-      className="flex flex-wrap items-center justify-between p-4 px-6 md:px-8 bg-transparent overflow-hidden fixed top-0 w-full z-20"
+      className="flex flex-wrap items-center justify-between p-4 px-6 md:px-8 bg-transparent overflow-hidden absolute top-0 w-full z-20"
       style={{ backgroundColor: 'transparent' }}
     >
       {/* Logo */}
@@ -13,7 +13,7 @@ const Navbar = ({ images }) => {
       </div>
 
       {/* Navigation Links */}
-      <div className="hidden md:flex items-center justify-center gap-8">
+      <div className="hidden md:flex items-center justify-center gap-20">
         <NavLink to="/" className="font-bold text-white hover:text-gray-300">
           About
         </NavLink>
