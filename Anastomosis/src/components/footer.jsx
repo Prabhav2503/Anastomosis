@@ -1,14 +1,59 @@
-import {Instagram , Youtube , Facebook } from "lucide-react"
+import { Instagram, Youtube, Facebook } from "lucide-react";
 
-export default function Footer({images}) {
-    return (
-      <footer style={{background: 'linear-gradient(to bottom, #082BEF 0%, #051259 100%)'}} className="flex flex-col md:flex-row items-center justify-around px-10 py-5">
-        <img src={images.footerlogo} alt="Footer Logo" className="w-128" />
-        <div className="border-t-4 border-l-0 md:border-l-4 md:border-t-0 border-solid border-white flex flex-row md:flex-col items-center justify-center p-6 gap-5 ">
-            <Instagram color="white"/>
+export default function Footer({ images }) {
+  return (
+    <footer 
+      style={{ 
+        background: 'linear-gradient(135deg, #0A1E8C 0%, #050A30 100%)' 
+      }} 
+      className="flex flex-col items-center text-center px-6 py-12 gap-8 text-white"
+    >
+      <div className="flex flex-col md:flex-row items-center justify-around w-full gap-12">
+        {/* Logo */}
+        <img 
+          src={images.footerlogo} 
+          alt="Footer Logo" 
+          className="w-40 md:w-150 drop-shadow-lg"
+        />
+
+        <div className="flex flex-col items-center md:items-start gap-6">
+           <div className="flex flex-row gap-6">
+          <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition">
+            <Instagram color="white" />
+          </a>
+          <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition">
             <Youtube color="white" />
+          </a>
+          <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition">
             <Facebook color="white" />
+          </a>
         </div>
-      </footer>
-    );
-  }
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-6">
+        <div className="text-center md:text-left">
+          <p className="font-semibold text-lg">John Doe</p>
+          <p className="text-gray-300 text-sm">Event Coordinator</p>
+          <p className="text-gray-400 text-sm">📞 +1 (555) 123-4567</p>
+          <p className="text-gray-400 text-sm">✉️ john.doe@email.com</p>
+        </div>
+
+        <div className="text-center md:text-left">
+          <p className="font-semibold text-lg">Jane Smith</p>
+          <p className="text-gray-300 text-sm">Marketing Head</p>
+          <p className="text-gray-400 text-sm">📞 +1 (555) 987-6543</p>
+          <p className="text-gray-400 text-sm">✉️ jane.smith@email.com</p>
+        </div>
+      </div>
+        </div>
+       
+      </div>
+
+      {/* Contact Details */}
+      
+
+      {/* Bottom Note */}
+      <p className="text-gray-400 text-sm mt-8">
+        © {new Date().getFullYear()} Your Company. All rights reserved.
+      </p>
+    </footer>
+  );
+}
