@@ -11,13 +11,13 @@ const Navbar = ({ images }) => {
         <img src={images.headerlogo} alt="EDC IIT Delhi Logo" className="h-15" />
       </div>
       <div className="flex items-center justify-center gap-40">
-        <NavLink to="/" className="text-white hover:text-gray-300 mr-6">
+        <NavLink to="/" className="font-bold text-white hover:text-gray-300 mr-6">
           About
         </NavLink>
-        <NavLink to="/" className="text-white hover:text-gray-300 mr-6">
+        <NavLink to="/" className="font-bold text-white hover:text-gray-300 mr-6">
           Agenda
         </NavLink>
-        <NavLink to="/" className="text-white hover:text-gray-300 mr-6">
+        <NavLink to="/" className="font-bold text-white hover:text-gray-300 mr-6">
           Speaker
         </NavLink>
       </div>
