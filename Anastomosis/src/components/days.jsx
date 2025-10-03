@@ -60,7 +60,7 @@ export const Day1Page = ({ images }) => {
             number={activity.number}
             title={activity.title}
             description={activity.description}
-            bg="bg-blue-600"
+            bg="bg-[#0647CA]"
             text = "text-white"
           />
         ))}

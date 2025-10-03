@@ -12,7 +12,7 @@ const Infocard = ({ body, bg, text }) => {
         color: text === 'white' ? 'white' : text === 'blue' ? '#1e40af' : text
       }}
     >
-      <p className="mt-2">{body}</p>
+      <p className="mt-2 text-xl font-semibold">{body}</p>
     </div>
   );
 };
