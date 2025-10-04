@@ -17,14 +17,19 @@ import {images, galleryImages} from "./utility/images"
 const HomePage = () => {
   return (
     <div>
-      {/* <div style={{background: 'linear-gradient(to bottom, #082BEF 0%, #051259 100%)'}} > */}
-      <LandingPage images={images} videoSrc={bgvideo}/>
-      <Homepage images={images} />
-      <Infopage images={images} />
-      <Whypage images={images} />
+      <LandingPage images={images} videoSrc={bgvideo} />
+        <Homepage images={images} />
+      <div id="about">
+        <Infopage images={images} />
+      </div>
+      <div id="speaker">
+        <Whypage images={images} />
+      </div>
       <Phases images={images} />
+     <div id="agenda">
       <Day1Page images={images} />
       <Day2Page images={images} />
+      </div>
       <Glimpse galleryImages={galleryImages} images={images} />
       <Footer images={images} />
     </div>

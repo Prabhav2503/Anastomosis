@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-scroll'; // Import from react-scroll
+
 
 const Navbar = ({ images }) => {
   return (
@@ -14,15 +16,30 @@ const Navbar = ({ images }) => {
 
       {/* Navigation Links */}
       <div className="hidden md:flex items-center justify-center gap-20">
-        <NavLink to="/" className="font-bold text-white hover:text-gray-300">
+        <Link
+          to="about"
+          smooth={true}
+          duration={500}
+          className="font-bold text-white hover:text-gray-300 cursor-pointer"
+        >
           About
-        </NavLink>
-        <NavLink to="/" className="font-bold text-white hover:text-gray-300">
+        </Link>
+        <Link
+          to="agenda"
+          smooth={true}
+          duration={500}
+          className="font-bold text-white hover:text-gray-300 cursor-pointer"
+        >
           Agenda
-        </NavLink>
-        <NavLink to="/" className="font-bold text-white hover:text-gray-300">
+        </Link>
+        <Link
+          to="speaker"
+          smooth={true}
+          duration={500}
+          className="font-bold text-white hover:text-gray-300 cursor-pointer"
+        >
           Speaker
-        </NavLink>
+        </Link>
       </div>
 
       {/* Apply Now Button */}
