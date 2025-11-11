@@ -21,11 +21,18 @@ export default function Glimpse({ galleryImages, images }) {
           In the most recent chapter, Anastomosis witnessed 4000+ registrations from 200+ schools
           across India, with 50+ talented students visiting the IIT Delhi and AIIMS Delhi campuses.
         </p>
-        <img
-          src={images.videolink}
-          alt="Video Link"
-          className="w-64 md:w-80 lg:w-96 mx-auto"
-        />
+        <a
+          href="https://drive.google.com/file/d/1M2Xe_bev9tnRVLkOp07G5VPeMjLBcZEf/view"
+          target="_blank"
+          rel="noopener noreferrer"
+          className='w-full h-full'
+        >
+          <img
+            src={images.videolink}
+            alt="Video Link"
+            className="w-64 md:w-80 lg:w-96 mx-auto cursor-pointer max-w-full"
+          />
+        </a>
       </div>
     </div>
   );
