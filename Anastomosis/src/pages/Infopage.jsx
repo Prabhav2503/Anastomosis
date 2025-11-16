@@ -3,18 +3,18 @@ import Card from '../components/infocard';
 
 const Infopage = ({ images }) => {
   return (
-    <div className="w-full min-h-screen p-6 flex flex-col items-center bg-gradient-to-b from-[#EAF2FF] to-white">
+    <div className="w-full min-h-screen bg-white py-20 flex flex-col items-center">
       {/* Header Section */}
       <header className="flex flex-col md:flex-row items-center mb-8 text-center md:text-left">
-        <img src={images.Spacerobot} alt="Robot Icon" className="h-12 md:h-16 mr-0 md:mr-4 mb-4 md:mb-0" />
-        <h1 className="text-3xl md:text-5xl font-bold text-blue-600">
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight text-center">
           WHAT IS ANASTOMOSIS
         </h1>
       </header>
+      <div className="w-24 h-1 bg-gray-300 mx-auto mb-8"></div>
 
       {/* Description */}
-      <p className="text-center text-base md:text-lg text-gray-800 mb-8 max-w-4xl">
-        <b>Anastomosis</b> isn’t just about learning — it’s about <b>curiosity, discovery,</b> and <b>inspiration</b>.
+      <p className="text-center text-lg md:text-2xl text-gray-700 mb-16 max-w-4xl leading-relaxed">
+        <b>Anastomosis</b> isn't just about learning — it's about <span className="text-gray-900 font-bold">curiosity, discovery,</span> and <span className="text-gray-900 font-bold">inspiration</span>.
       </p>
 
       {/* Cards Section */}

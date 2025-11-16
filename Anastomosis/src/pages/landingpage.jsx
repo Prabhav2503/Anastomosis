@@ -18,7 +18,7 @@ const LandingPage = ({ images, videoSrc }) => {
       {/* 🔹 Foreground Content (Image) */}
       <div className="relative z-10 w-full h-full bg-transparent flex items-center justify-center p-10">
         <img
-          src={images.anastomosis}
+          src={images.logo}
           alt="Main Logo"
           className="w-[80%] h-[80%] object-contain"
         />

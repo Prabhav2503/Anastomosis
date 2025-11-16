@@ -1,4 +1,5 @@
 import anastomosis from "../assets/anastomosis.svg";
+import logo from "../assets/logo.png";
 import seperator from "../assets/seperator.svg";
 import edciitd from "../assets/edciitd.svg";
 // import edcaiims from "../assets/edcaiims.png";
@@ -38,6 +39,7 @@ import img13 from "../assets/gallery/image13.png";
 
 export const images = {
     anastomosis:anastomosis,
+    logo:logo,
     seperator:seperator,
     edciitd:edciitd,
     iitdbuilding:iitdbuilding,
