@@ -1,3 +1,4 @@
+import { label } from 'framer-motion/client';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
@@ -9,6 +10,7 @@ const Navbar = ({ images }) => {
     { to: 'about', label: 'About' },
     { to: 'agenda', label: 'Agenda' },
     { to: 'speaker', label: 'Speaker' },
+    {to: 'Contact Us', label: 'Contact Us' }
   ];
 
   return (
@@ -37,17 +39,7 @@ const Navbar = ({ images }) => {
               {label}
             </ScrollLink>
           ))}
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
-            spy={true}
-            offset={-64}
-            activeClass="text-gray-300"
-            className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
-          >
-            Contact Us
-          </ScrollLink>
+          
         </div>
 
         {/* Right side - Register/Login + Mobile toggle */}

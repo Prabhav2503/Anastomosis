@@ -35,7 +35,9 @@ const HomePage = () => {
       <Day2Page images={images} />
       </div>
       <Glimpse galleryImages={galleryImages} images={images} />
-      <Footer images={images} />
+      <div id="Contact Us">
+        <Footer images={images} />
+      </div>
     </div>
   );
 };
