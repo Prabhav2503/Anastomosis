@@ -1,3 +1,4 @@
+import { label } from 'framer-motion/client';
 import React, { useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
@@ -12,6 +13,9 @@ const Navbar = ({ images }) => {
 
   const navLinks = [
     { to: 'about', label: 'About' },
+    { to: 'agenda', label: 'Agenda' },
+    { to: 'speaker', label: 'Speaker' },
+    {to: 'Contact Us', label: 'Contact Us' }
   ];
 
   const handleNavClick = (sectionId) => {
@@ -86,20 +90,8 @@ const Navbar = ({ images }) => {
             >
               Contact Us
             </ScrollLink>
-          ) : (
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
-            >
-              Contact Us
-            </button>
-          )}
-          <NavLink
-            to="/resources"
-            className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
-          >
-            Resources
-          </NavLink>
+          ))}
+          
         </div>
 
         {/* Right side - Register/Login or Profile Dropdown + Mobile toggle */}

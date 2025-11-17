@@ -38,7 +38,7 @@ const HomePage = () => {
       <Day2Page images={images} />
       </div>
       <Glimpse galleryImages={galleryImages} images={images} />
-      <div id="contact">
+      <div id="Contact Us">
         <Footer images={images} />
       </div>
     </div>
