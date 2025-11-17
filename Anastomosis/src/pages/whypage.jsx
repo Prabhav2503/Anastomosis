@@ -82,6 +82,7 @@ const WhyJoinPage = ({images}) => {
         />
       </div>
     </div>
+  </div>
   );
 };
 
