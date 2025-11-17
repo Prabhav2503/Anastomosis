@@ -3,7 +3,7 @@ import PhaseCard from "../components/phasecard";
 
 const PhasesPage = ({ images }) => {
   return (
-    <div className="w-full h-full p-6 flex flex-col gap-12 items-center bg-gradient-to-tr from-[#082BEF] to-[#051259]">
+    <div className="w-full h-full p-6 flex flex-col gap-12 items-center bg-black">
       {/* Phase 1 */}
       <div className="flex flex-col lg:flex-row items-center gap-6 w-full">
         <img src={images.phase1} alt="Phase 1" className="w-50 md:w-64 lg:w-80" />

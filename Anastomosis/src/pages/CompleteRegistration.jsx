@@ -81,16 +81,14 @@ const CompleteRegistration = ({ images }) => {
       await setDoc(doc(db, 'userProgress', user.uid), {
         userId: user.uid,
         steps: {
-          registration: true,
-          payment: false,
-          confirmation: false
+          registration: true
         },
         updatedAt: new Date().toISOString()
       });
       console.log('User progress saved successfully');
 
-      // Navigate back to dashboard
-      navigate('/dashboard', { state: { registrationComplete: true } });
+      // Navigate to confirmation page
+      navigate('/confirmation');
     } catch (err) {
       console.error('Error saving registration:', err);
       console.error('Error code:', err.code);
