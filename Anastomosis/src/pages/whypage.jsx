@@ -54,7 +54,7 @@ const WhyJoinPage = ({images}) => {
         </p>
 
         {/* Cards Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-[1400px] mx-auto">
         <Card
           icon={images.attend}
           title="Attend"
@@ -74,11 +74,6 @@ const WhyJoinPage = ({images}) => {
           icon={images.win}
           title="Win"
           description="Prizes, get mentorship, and earn national-level recognition for your talent and  ideas."
-        />
-        <Card
-          icon={images.receive}
-          title="Receive"
-          description="Prestigious certificates jointly endorsed by IIT Delhi and AIIMS Delhi,  validating your achievement."
         />
       </div>
     </div>

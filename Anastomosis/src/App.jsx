@@ -10,9 +10,12 @@ import Glimpse from "./pages/glimpse.jsx"
 import RegistrationPage from './pages/registeration-new.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import CompleteRegistration from './pages/CompleteRegistration.jsx';
+import Confirmation from './pages/Confirmation.jsx';
+import Resources from './pages/Downloads.jsx';
 import Phases from "./pages/phases.jsx";
 import Footer from "./components/footer.jsx"
 import {Day1Page,Day2Page} from "./components/days.jsx"
+import NotFound from './pages/NotFound.jsx';
 
 import bgvideo from './assets/bgvideo.mp4';
 
@@ -50,6 +53,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegistrationPage images={images} />} />
+          <Route path="/resources" element={<Resources images={images} />} />
           <Route 
             path="/dashboard" 
             element={
@@ -66,6 +70,15 @@ export default function App() {
               </ProtectedRoute>
             } 
           />
+          <Route 
+            path="/confirmation" 
+            element={
+              <ProtectedRoute>
+                <Confirmation images={images} />
+              </ProtectedRoute>
+            } 
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </AuthProvider>

@@ -8,9 +8,7 @@ const Dashboard = ({ images }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [completedSteps, setCompletedSteps] = useState({
-    registration: false,
-    payment: false,
-    confirmation: false
+    registration: false
   });
   const [loading, setLoading] = useState(true);
 
@@ -24,9 +22,7 @@ const Dashboard = ({ images }) => {
         if (progressDoc.exists()) {
           const data = progressDoc.data();
           setCompletedSteps(data.steps || {
-            registration: false,
-            payment: false,
-            confirmation: false
+            registration: false
           });
         }
       } catch (error) {
@@ -53,25 +49,9 @@ const Dashboard = ({ images }) => {
       id: 'registration',
       number: 1,
       title: 'Complete Registration',
-      description: 'Fill in your personal details and event information',
+      description: 'Fill in your personal details and event information. You will see confirmation after submission.',
       completed: completedSteps.registration,
-      action: () => navigate('/complete-registration')
-    },
-    {
-      id: 'payment',
-      number: 2,
-      title: 'Payment',
-      description: 'Complete the registration fee payment',
-      completed: completedSteps.payment,
-      locked: !completedSteps.registration
-    },
-    {
-      id: 'confirmation',
-      number: 3,
-      title: 'Final Confirmation',
-      description: 'Receive your registration confirmation',
-      completed: completedSteps.confirmation,
-      locked: !completedSteps.payment
+      action: completedSteps.registration ? () => navigate('/confirmation') : () => navigate('/complete-registration')
     }
   ];
 
@@ -146,22 +126,13 @@ const Dashboard = ({ images }) => {
                   <p className="text-gray-400 mb-4">{step.description}</p>
 
                   {/* Action Button */}
-                  {!step.locked && !step.completed && step.action && (
+                  {!step.locked && step.action && (
                     <button
                       onClick={step.action}
                       className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition duration-200"
                     >
-                      Start
+                      {step.completed ? 'View Confirmation' : 'Start'}
                     </button>
-                  )}
-
-                  {step.completed && (
-                    <span className="inline-flex items-center gap-2 text-green-400 font-semibold">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      Completed
-                    </span>
                   )}
 
                   {step.locked && (

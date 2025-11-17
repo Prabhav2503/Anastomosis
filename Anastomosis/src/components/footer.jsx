@@ -106,7 +106,7 @@ const footer = () => {
             <div className="flex flex-col flex-1 gap-3 sm:gap-[14px] text-sm sm:text-base md:text-[15px] text-center lg:text-left">
               <p className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2">
                 <Mail className="inline w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
-                <span>info@edciitd.ac.in</span>
+                <span>team@edciitd.com</span>
               </p>
               <p className="flex flex-col sm:flex-row items-center sm:items-start gap-1 sm:gap-2">
                 <MapPin className="inline w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
