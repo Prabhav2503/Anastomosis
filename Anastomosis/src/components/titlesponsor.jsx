@@ -11,7 +11,7 @@ const TitleSponsor = ({ sponsorLogo }) => {
 
       {/* Header */}
       <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight text-center">
-        TITLE SPONSOR & BROUGHT TO YOU BY
+        TITLE SPONSOR 
       </h1>
       <div className="w-24 h-1 bg-gray-300 mx-auto my-6"></div>
 

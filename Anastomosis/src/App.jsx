@@ -28,8 +28,9 @@ const HomePage = () => {
       <LandingPage images={images} videoSrc={bgvideo} />
         <Homepage images={images} />
       <div id="about">
-        <Infopage images={images} />
         <TitleSponsor sponsorLogo={images.pwlogo} />
+        <Infopage images={images} />
+        
       </div>
       <div id="speaker">
         <Whypage images={images} />
