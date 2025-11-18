@@ -50,12 +50,12 @@ const CompleteRegistration = ({ images }) => {
     setError('');
     
     try {
-      console.log('Starting registration submission...');
-      console.log('User UID:', user.uid);
-      console.log('Form data:', formData);
+      // console.log('Starting registration submission...');
+      // console.log('User UID:', user.uid);
+      // console.log('Form data:', formData);
       
       // Save registration data to Firestore
-      console.log('Saving to registrations collection...');
+      // console.log('Saving to registrations collection...');
       await setDoc(doc(db, 'registrations', user.uid), {
         userId: user.uid,
         email: user.email,
