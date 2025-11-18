@@ -1,9 +1,55 @@
 import React from 'react';
 import Card from '../components/infocard';
+import { FileDown,CalendarArrowDown  } from 'lucide-react';
+import timelinePDF from '../assets/docs/ANASTOMOSIS_TIMELINE.pdf';
+import brochurePDF from '../assets/docs/brochure_Anastomosis.pdf';
 
 const Infopage = ({ images }) => {
+  const [isVisible, setIsVisible] = React.useState(false);
+  
+    React.useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      const section = document.getElementById('why-section');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
+
+  const handleDownload = (file, filename) => {
+  const link = document.createElement("a");
+  link.href = file;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
   return (
-    <div className="w-full min-h-screen bg-white py-20 flex flex-col items-center">
+    <div id="why-section" className="w-full min-h-screen relative bg-white py-20 flex flex-col items-center">
+
+      <div className={`absolute top-20 left-0 w-96 h-96 opacity-5 transition-all duration-1000 transform ${
+        isVisible ? 'translate-x-0 rotate-0' : 'translate-x-full rotate-45'
+      }`}>
+        <svg viewBox="0 0 200 200" className="w-full h-full">
+          <path d="M 0,100 Q 100,0 200,100 Q 100,200 0,100 Z" fill="currentColor" className="text-blue-600" />
+        </svg>
+      </div>
+
       {/* Header Section */}
       <header className="flex flex-col md:flex-row items-center mb-8 text-center md:text-left">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight text-center">
@@ -41,6 +87,43 @@ const Infopage = ({ images }) => {
           text="white"
         />
       </div>
+
+{/* Download Section */}
+<div className="w-full max-w-4xl mt-16 px-4 flex flex-col items-center gap-4 ">
+  <p className="text-center text-lg md:text-2xl text-gray-700 mb-10 max-w-4xl leading-relaxed">
+    Download the official <b>brochure</b> and <b>event timeline</b> to explore the complete details of ANASTOMOSIS.
+  </p>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+
+    {/* Brochure Button */}
+    {/* Brochure Button */}
+<button
+  onClick={() => handleDownload(brochurePDF, "Anastomosis_Brochure.pdf")}
+  className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600 
+             py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
+             transition-all duration-500 hover:scale-105"
+>
+  <FileDown size={24} color="black" />
+  <span className="text-xl">Download Brochure</span>
+</button>
+
+{/* Timeline Button */}
+<button
+  onClick={() => handleDownload(timelinePDF, "Anastomosis_Timeline.pdf")}
+  className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600
+             py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
+             transition-all duration-500 hover:scale-105"
+>
+  <CalendarArrowDown size={24}  color="black"  />
+  <span className="text-xl">Download Timeline</span>
+</button>
+
+
+  </div>
+</div>
+
+
     </div>
   );
 };

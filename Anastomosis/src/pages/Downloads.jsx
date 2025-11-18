@@ -1,7 +1,8 @@
 import React from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import timelinePDF from '../assets/docs/ANASTOMOSIS TIMELINE.pdf';
+import timelinePDF from '../assets/docs/ANASTOMOSIS_TIMELINE.pdf';
+import brochurePDF from '../assets/docs/brochure_Anastomosis.pdf';
 
 const Resources = ({ images }) => {
   const [isVisible, setIsVisible] = React.useState(false);
@@ -37,9 +38,14 @@ const Resources = ({ images }) => {
       description: 'Complete schedule and timeline for Anastomosis',
       fileUrl: timelinePDF,
       category: 'Schedule',
-      date: '2025-11-17'
     },
-    
+    {
+      id: 2,
+      name: 'Event Brochure',
+      description: 'Complete Brochure Event for Anastomosis',
+      fileUrl: brochurePDF,
+      category: 'Brochure',
+    },
   ];
 
   const handleDownload = (fileUrl, fileName) => {
@@ -115,12 +121,7 @@ const Resources = ({ images }) => {
                               </svg>
                               {doc.category}
                             </span>
-                            <span className="flex items-center gap-1">
-                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                              </svg>
-                              {new Date(doc.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                            </span>
+                            
                           </div>
                         </div>
                       </div>
@@ -143,7 +144,7 @@ const Resources = ({ images }) => {
           </div>
 
           {/* Help Section */}
-          <div className="mt-12 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          {/* <div className="mt-12 max-w-4xl mx-auto animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <div className="bg-gray-50 rounded-xl p-6 md:p-8 border border-gray-200 text-center">
               <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Need Help?</h3>
               <p className="text-gray-600 mb-4 text-sm md:text-base">
@@ -156,7 +157,7 @@ const Resources = ({ images }) => {
                 Contact Support
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <style jsx>{`
