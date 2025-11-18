@@ -4,7 +4,7 @@ const Infocard = ({ body }) => {
   return (
     <div className="relative w-full h-full bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:transform hover:scale-105 group">
       {/* Swoosh Design */}
-      <div className="absolute top-0 right-0 w-32 h-32 opacity-10 transform translate-x-8 -translate-y-8">
+      <div className="hidden md:block absolute top-0 right-0 w-32 h-32 opacity-10 transform translate-x-8 -translate-y-8">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <path d="M 0,0 Q 50,50 100,0 L 100,100 L 0,100 Z" fill="currentColor" className="text-blue-600" />
         </svg>

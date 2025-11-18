@@ -22,6 +22,7 @@ import phase3 from "../assets/phase3.svg";
 import phase4 from "../assets/phase4.svg";  
 import footerlogo from "../assets/footerlogo.svg";
 import headerlogo from "../assets/headerlogo.svg";
+import pwlogo from "../assets/pwlogo.png";
 
 import img1 from "../assets/gallery/image1.png";
 import img2 from "../assets/gallery/image2.png";
@@ -61,7 +62,8 @@ export const images = {
     phase3:phase3,
     phase4:phase4,
     footerlogo:footerlogo,
-    headerlogo:headerlogo
+    headerlogo:headerlogo,
+    pwlogo:pwlogo
 }
 
 

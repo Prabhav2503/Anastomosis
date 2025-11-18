@@ -43,7 +43,7 @@ const WhyJoinPage = ({images}) => {
         {/* Header Section */}
         <header className="flex flex-col items-center mb-12 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight text-center">
-            Why JOIN?
+            WHY JOIN?
           </h1>
           <div className="mt-4 mx-auto w-24 h-1 bg-gray-300"></div>
         </header>

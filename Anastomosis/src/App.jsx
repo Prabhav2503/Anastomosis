@@ -16,6 +16,7 @@ import Phases from "./pages/phases.jsx";
 import Footer from "./components/footer.jsx"
 import {Day1Page,Day2Page} from "./components/days.jsx"
 import NotFound from './pages/NotFound.jsx';
+import TitleSponsor from './components/titlesponsor.jsx';
 
 import bgvideo from './assets/bgvideo.mp4';
 
@@ -28,6 +29,7 @@ const HomePage = () => {
         <Homepage images={images} />
       <div id="about">
         <Infopage images={images} />
+        <TitleSponsor sponsorLogo={images.pwlogo} />
       </div>
       <div id="speaker">
         <Whypage images={images} />
