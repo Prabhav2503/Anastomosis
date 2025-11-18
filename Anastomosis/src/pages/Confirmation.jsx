@@ -283,6 +283,7 @@ const Confirmation = ({ images }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
               <DetailCard label="City" value={registrationData.city} />
               <DetailCard label="State" value={registrationData.state} />
+              <DetailCard label="Pincode" value={registrationData.pincode} />
               <DetailCard label="Teacher Name" value={registrationData.teacherName} />
               <DetailCard label="Teacher Phone" value={registrationData.teacherPhone} />
             </div>

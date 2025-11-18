@@ -18,6 +18,7 @@ const CompleteRegistration = ({ images }) => {
     class: '',
     state: '',
     city: '',
+    pincode: '',
     phoneNumber: '',
     alternatePhone: '',
     teacherName: '',
@@ -66,6 +67,7 @@ const CompleteRegistration = ({ images }) => {
         class: formData.class,
         state: formData.state,
         city: formData.city,
+        pincode: formData.pincode,
         phoneNumber: `+91${formData.phoneNumber}`,
         alternatePhone: formData.alternatePhone ? `+91${formData.alternatePhone}` : '',
         teacherName: formData.teacherName,
@@ -202,7 +204,7 @@ const CompleteRegistration = ({ images }) => {
               </div>
 
               {/* Class, State, City */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div>
                   <label className="block text-gray-300 text-sm font-medium mb-2">
                     Class *
@@ -247,6 +249,21 @@ const CompleteRegistration = ({ images }) => {
                     onChange={handleChange}
                     className="w-full p-3 rounded-lg bg-gray-800 bg-opacity-50 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="City"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-300 text-sm font-medium mb-2">
+                    Pincode *
+                  </label>
+                  <input
+                    type="text"
+                    name="pincode"
+                    value={formData.pincode}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-gray-800 bg-opacity-50 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Pincode"
+                    maxLength="6"
                     required
                   />
                 </div>
@@ -372,6 +389,7 @@ const CompleteRegistration = ({ images }) => {
               <ReviewRow label="Class" value={formData.class} />
               <ReviewRow label="State" value={formData.state} />
               <ReviewRow label="City" value={formData.city} />
+              <ReviewRow label="Pincode" value={formData.pincode} />
               <ReviewRow label="Phone Number" value={`+91 ${formData.phoneNumber}`} />
               {formData.alternatePhone && (
                 <ReviewRow label="Alternate Phone" value={`+91 ${formData.alternatePhone}`} />
