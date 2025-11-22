@@ -8,7 +8,9 @@ const Dashboard = ({ images }) => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const [completedSteps, setCompletedSteps] = useState({
-    registration: false
+    registration: false,
+    telegram: false,
+    studyMaterial: false
   });
   const [loading, setLoading] = useState(true);
 
@@ -22,7 +24,9 @@ const Dashboard = ({ images }) => {
         if (progressDoc.exists()) {
           const data = progressDoc.data();
           setCompletedSteps(data.steps || {
-            registration: false
+            registration: false,
+            telegram: false,
+            studyMaterial: false
           });
         }
       } catch (error) {
@@ -49,9 +53,28 @@ const Dashboard = ({ images }) => {
       id: 'registration',
       number: 1,
       title: 'Complete Registration',
-      description: 'Fill in your personal details and event information. You will see confirmation after submission.',
+      description: 'Fill in your personal details and event information.',
       completed: completedSteps.registration,
       action: completedSteps.registration ? () => navigate('/confirmation') : () => navigate('/complete-registration')
+    },
+    {
+      id: 'telegram',
+      number: 2,
+      title: 'Join Telegram Channel',
+      description: 'Stay updated with the latest announcements and connect with other participants.',
+      completed: completedSteps.telegram,
+      action: () => {
+        window.open('https://t.me/dummylink', '_blank');
+      }
+    },
+    {
+      id: 'studyMaterial',
+      number: 3,
+      title: 'Study Material',
+      description: 'Access exclusive study resources and preparation materials.',
+      completed: completedSteps.studyMaterial,
+      locked: !completedSteps.registration,
+      action: null
     }
   ];
 
@@ -80,70 +103,84 @@ const Dashboard = ({ images }) => {
           </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
         {/* Welcome Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+        <div className="text-center mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2">
             Welcome, {user?.displayName || user?.email?.split('@')[0]}!
           </h2>
-          <p className="text-gray-400 text-lg">
-            Complete the following steps to finish your registration
+          <p className="text-gray-300 text-sm sm:text-base">
+            Your journey to Anastomosis starts here
           </p>
         </div>
 
-        {/* Steps */}
-        <div className="space-y-6">
-          {steps.map((step, index) => (
+        {/* Banner */}
+        <div className="mb-6 sm:mb-8 rounded-lg overflow-hidden shadow-xl relative group">
+          <img 
+            src="/src/assets/tata.jpg" 
+            alt="Anastomosis Banner" 
+            className="w-full h-auto object-contain bg-black"
+          />
+          <button
+            onClick={() => window.open('https://tataminiessay.com/', '_blank')}
+            className="absolute top-4 right-4 bg-white hover:bg-gray-100 text-black px-6 py-3 rounded-lg font-bold transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 text-sm sm:text-base border-2 border-black"
+          >
+            Take the Pledge
+          </button>
+        </div>
+
+        {/* Steps - Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          {steps.map((step) => (
             <div
               key={step.id}
-              className={`bg-black bg-opacity-60 backdrop-blur-md rounded-xl shadow-xl p-6 border-2 transition-all ${
+              className={`bg-gradient-to-br from-gray-900 to-black rounded-lg p-4 sm:p-6 border transition-all duration-300 ${
                 step.completed
-                  ? 'border-green-500 bg-opacity-70'
+                  ? 'border-green-500 shadow-lg shadow-green-500/20'
                   : step.locked
-                  ? 'border-gray-700 opacity-50'
-                  : 'border-blue-500 hover:border-blue-400'
+                  ? 'border-gray-700 opacity-70'
+                  : 'border-blue-500 shadow-lg shadow-blue-500/20 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1'
               }`}
             >
-              <div className="flex items-start gap-4">
-                {/* Step Number Circle */}
+              {/* Step Number Circle */}
+              <div className="flex justify-center mb-4">
                 <div
-                  className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                  className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-xl ${
                     step.completed
-                      ? 'bg-green-500 text-white'
+                      ? 'bg-gradient-to-br from-green-400 to-green-600 text-white shadow-lg'
                       : step.locked
-                      ? 'bg-gray-700 text-gray-500'
-                      : 'bg-blue-500 text-white'
+                      ? 'bg-gray-700 text-gray-400'
+                      : 'bg-gradient-to-br from-blue-400 to-blue-600 text-white shadow-lg'
                   }`}
                 >
-                  {step.completed ? '✓' : step.number}
+                  {step.completed ? '✓' : step.locked ? '🔒' : step.number}
                 </div>
+              </div>
 
-                {/* Step Content */}
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4">{step.description}</p>
+              {/* Step Content */}
+              <div className="text-center">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-gray-300 text-xs sm:text-sm mb-4 leading-relaxed min-h-[45px]">
+                  {step.description}
+                </p>
 
-                  {/* Action Button */}
-                  {!step.locked && step.action && (
-                    <button
-                      onClick={step.action}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition duration-200"
-                    >
-                      {step.completed ? 'View Confirmation' : 'Start'}
-                    </button>
-                  )}
+                {/* Action Button */}
+                {!step.locked && step.action && (
+                  <button
+                    onClick={step.action}
+                    className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm"
+                  >
+                    {step.completed ? 'View Details' : step.id === 'telegram' ? 'Join Now' : 'Start'}
+                  </button>
+                )}
 
-                  {step.locked && (
-                    <span className="inline-flex items-center gap-2 text-gray-500 font-semibold">
-                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                      </svg>
-                      Locked
-                    </span>
-                  )}
-                </div>
+                {step.locked && (
+                  <div className="text-gray-400 text-xs sm:text-sm font-medium py-2 bg-gray-800/50 rounded-lg">
+                    Complete registration to unlock
+                  </div>
+                )}
               </div>
             </div>
           ))}
