@@ -23,6 +23,7 @@ import bgvideo from './assets/bgvideo.mp4';
 
 import {images, galleryImages} from "./utility/images"
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from "@vercel/analytics/react";
 
 const HomePage = () => {
   return (
@@ -87,6 +88,7 @@ export default function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <SpeedInsights />
+        <Analytics />
       </Router>
     </AuthProvider>
   );
