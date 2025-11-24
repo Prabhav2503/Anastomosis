@@ -22,7 +22,7 @@ import TitleSponsor from './components/titlesponsor.jsx';
 import bgvideo from './assets/bgvideo.mp4';
 
 import {images, galleryImages} from "./utility/images"
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const HomePage = () => {
   return (
@@ -52,7 +52,6 @@ const HomePage = () => {
 
 export default function App() {
   return (
-    <SpeedInsights>
     <AuthProvider>
       <Router>
         <Navbar images={images}  />
@@ -87,8 +86,8 @@ export default function App() {
           />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <SpeedInsights />
       </Router>
     </AuthProvider>
-    </SpeedInsights>
   );
 }
