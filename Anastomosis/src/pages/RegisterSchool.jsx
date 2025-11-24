@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db, auth } from '../firebase/config';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, getDoc, serverTimestamp } from 'firebase/firestore';
 import { useAuth } from '../context/AuthContext';
 
 const RegisterSchool = ({ images }) => {
@@ -21,7 +21,29 @@ const RegisterSchool = ({ images }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [isRegistered, setIsRegistered] = useState(false);
+  const [registrationData, setRegistrationData] = useState(null);
   const { user, loginWithGoogle } = useAuth();
+
+  useEffect(() => {
+    const checkRegistration = async () => {
+      if (!user) return;
+      
+      try {
+        const docRef = doc(db, 'schoolRegistrations', user.uid);
+        const docSnap = await getDoc(docRef);
+        
+        if (docSnap.exists()) {
+          setIsRegistered(true);
+          setRegistrationData(docSnap.data());
+        }
+      } catch (err) {
+        console.error('Error checking registration:', err);
+      }
+    };
+
+    checkRegistration();
+  }, [user]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -71,6 +93,8 @@ const RegisterSchool = ({ images }) => {
       }
       await setDoc(doc(db, 'schoolRegistrations', currentUser.uid), payload);
       setSuccess('Registration saved successfully');
+      setIsRegistered(true);
+      setRegistrationData(payload);
       setForm({
         schoolName: '',
         address: '',
@@ -116,6 +140,38 @@ const RegisterSchool = ({ images }) => {
 
       {/* Main content */}
       <main className="max-w-6xl mx-auto px-6 pb-16">
+        {isRegistered ? (
+          // Already registered view
+          <div className="max-w-3xl mx-auto">
+            <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-8 text-center">
+              <div className="flex justify-center mb-4">
+                <svg className="w-16 h-16 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h2 className="text-3xl font-bold text-green-800 mb-3">School Already Registered!</h2>
+              <p className="text-green-700 mb-6">Your school registration has been submitted successfully.</p>
+              
+              {registrationData && (
+                <div className="bg-white rounded-lg p-6 text-left mt-4">
+                  <h3 className="text-lg font-semibold text-gray-800 mb-4">Registration Details:</h3>
+                  <div className="space-y-2 text-gray-700">
+                    <p><span className="font-medium">School:</span> {registrationData.schoolName}</p>
+                    {registrationData.city && <p><span className="font-medium">City:</span> {registrationData.city}, {registrationData.state}</p>}
+                    {registrationData.teacherName && <p><span className="font-medium">Teacher POC:</span> {registrationData.teacherName}</p>}
+                    {registrationData.teacherPhone && <p><span className="font-medium">Contact:</span> {registrationData.teacherPhone}</p>}
+                  </div>
+                </div>
+              )}
+              
+              <p className="text-gray-600 mt-6 text-sm">
+                We'll contact you soon at the registered contact details. For any changes or questions, 
+                please email us at <a href="mailto:anastomosis@edciitd.com" className="text-blue-600 underline">anastomosis@edciitd.com</a>
+              </p>
+            </div>
+          </div>
+        ) : (
+          // Registration form view
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Form card */}
           <section id="registration-form" className="lg:col-span-2 bg-white rounded-2xl shadow-md border border-gray-200 p-8">
@@ -255,6 +311,7 @@ const RegisterSchool = ({ images }) => {
             </div>
           </aside>
         </div>
+        )}
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import { useAuth } from '../context/AuthContext';
@@ -6,9 +6,19 @@ import { useAuth } from '../context/AuthContext';
 const Navbar = ({ images }) => {
   const [open, setOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useAuth();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { to: 'about', label: 'About' },
@@ -39,12 +49,14 @@ const Navbar = ({ images }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black shadow">
-      <div className="w-full flex items-center justify-between px-6 md:px-12 lg:px-16 h-16 md:h-20">
+    <nav className={`fixed top-0 left-0 w-full z-50 shadow transition-colors duration-300 ${
+      location.pathname === '/' && !scrolled ? 'bg-transparent' : 'bg-black'
+    }`}>
+      <div className="w-full flex items-center justify-between px-4 md:px-12 lg:px-16 h-16 md:h-20 max-w-[100vw] bg-black">
         {/* Logo */}
-        <div className="flex items-center flex-shrink-0">
+        <div className="flex items-center flex-shrink-0 min-w-0">
           <NavLink to="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <img src={images.headerlogo} alt="EDC IIT Delhi Logo" className="h-10 md:h-14" />
+            <img src={images.headerlogo} alt="EDC IIT Delhi Logo" className="h-8 md:h-14 w-auto object-contain" />
           </NavLink>
         </div>
 
@@ -103,7 +115,7 @@ const Navbar = ({ images }) => {
         </div>
 
         {/* Right side - Register/Login or Profile Dropdown + Mobile toggle */}
-        <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
+        <div className="flex items-center gap-2 md:gap-3 flex-shrink-0 min-w-0">
           {user ? (
             <>
               {/* Desktop - Profile Dropdown */}
@@ -162,7 +174,7 @@ const Navbar = ({ images }) => {
               {/* Mobile - Register */}
               <NavLink
                 to="/register"
-                className="md:hidden bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-md text-sm font-medium"
+                className="md:hidden bg-blue-600 hover:bg-blue-700 text-white px-2 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
               >
                 Register
               </NavLink>
@@ -170,7 +182,7 @@ const Navbar = ({ images }) => {
           )}
 
           <button
-            className="md:hidden text-white p-2 rounded-md focus:outline-none mr-1"
+            className="md:hidden text-white p-2 rounded-md focus:outline-none"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}

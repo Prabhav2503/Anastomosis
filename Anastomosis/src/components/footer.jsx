@@ -47,7 +47,7 @@ const Footer = () => {
         <img
         src={logo}
         alt=""
-        className="relative mt-10 lg:mt-0 lg:absolute lg:right-[5%] lg:top-[5%] w-80 lg:w-80 xl:w-100"
+        className="relative mt-10 lg:mt-0 lg:absolute lg:right-[5%] lg:top-[30%] w-80 lg:w-80 xl:w-100"
       />
         <div className="flex flex-col lg:flex-row justify-start gap-8 sm:gap-10 lg:gap-[180px] px-6 sm:px-8 md:px-[66px] pt-12 ">
           
@@ -120,13 +120,7 @@ const Footer = () => {
                   onClick={() => navigate("/resources")}
                   className="hover:underline transition-all"
                 >
-                  Timeline
-                </button>
-                <button
-                  onClick={() => navigate("/resources")}
-                  className="hover:underline transition-all"
-                >
-                  Brochure
+                  Resources
                 </button>
                 <button
                   onClick={() => navigate("/register-school")}
