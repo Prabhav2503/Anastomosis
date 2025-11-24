@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from '../firebase/config';
 import { doc, getDoc } from 'firebase/firestore';
+import tataBanner from '../assets/tata.jpg';
 
 const Dashboard = ({ images }) => {
   const { user, logout } = useAuth();
@@ -140,7 +141,7 @@ const Dashboard = ({ images }) => {
         {/* Banner */}
         <div className="mb-6 sm:mb-8 rounded-lg overflow-hidden shadow-xl relative group">
           <img
-            src="/src/assets/tata.jpg"
+            src={tataBanner}
             alt="Anastomosis Banner"
             className="w-full h-auto max-h-40 sm:max-h-56 md:max-h-72 object-contain mx-auto"
           />
