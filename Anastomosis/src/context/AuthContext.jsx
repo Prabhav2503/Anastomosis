@@ -6,6 +6,7 @@ import {
   signOut,
   onAuthStateChanged,
   sendPasswordResetEmail,
+  sendEmailVerification,
   updateProfile
 } from 'firebase/auth';
 import { auth, googleProvider } from '../firebase/config';
@@ -30,6 +31,8 @@ export const AuthProvider = ({ children }) => {
     if (displayName) {
       await updateProfile(userCredential.user, { displayName });
     }
+    // Send email verification
+    await sendEmailVerification(userCredential.user);
     return userCredential;
   };
 

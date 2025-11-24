@@ -8,6 +8,9 @@ const Resources = ({ images }) => {
   const [isVisible, setIsVisible] = React.useState(false);
 
   React.useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

@@ -41,7 +41,7 @@ const Footer = () => {
   return (
     <div className="flex flex-col relative min-h-[400px] md:min-h-[313.44px] px-4 sm:px-6 md:px-[60px]">
       <div
-        className="mt-6 sm:mt-8 lg:mt-[35px] bg-gradient-to-br from-[#000046b3] via-[#072D6D] via-73-[#0E5B93] to-[#2F67DA] flex-1 flex-col rounded-t-2xl sm:rounded-t-3xl md:rounded-t-4xl "
+        className="mt-6 sm:mt-8 lg:mt-[35px] bg-black flex-1 flex-col rounded-t-2xl sm:rounded-t-3xl md:rounded-t-4xl "
       >
         <div className="relative flex flex-col items-center lg:items-start">
         <img
@@ -127,6 +127,12 @@ const Footer = () => {
                   className="hover:underline transition-all"
                 >
                   Brochure
+                </button>
+                <button
+                  onClick={() => navigate("/register-school")}
+                  className="hover:underline transition-all"
+                >
+                  Register as School
                 </button>
               </div>
             </div>

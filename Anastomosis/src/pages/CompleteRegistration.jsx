@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase/config';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, collection, getDocs, query, where } from 'firebase/firestore';
 
 const CompleteRegistration = ({ images }) => {
   const { user } = useAuth();
@@ -10,6 +10,10 @@ const CompleteRegistration = ({ images }) => {
   const [currentStep, setCurrentStep] = useState('form'); // 'form' or 'review'
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [schoolSearch, setSchoolSearch] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [searching, setSearching] = useState(false);
+  const [showResults, setShowResults] = useState(false);
   const [formData, setFormData] = useState({
     fullName: '',
     fatherName: '',
@@ -35,6 +39,63 @@ const CompleteRegistration = ({ images }) => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  };
+
+  const handleSearchSchools = async () => {
+    if (!schoolSearch.trim()) {
+      setError('Please enter a school name to search');
+      return;
+    }
+    
+    setSearching(true);
+    setError('');
+    
+    try {
+      const schoolsRef = collection(db, 'schoolRegistrations');
+      const schoolsSnapshot = await getDocs(schoolsRef);
+      
+      const results = [];
+      schoolsSnapshot.forEach((doc) => {
+        const data = doc.data();
+        const schoolName = data.schoolName || '';
+        
+        // Case-insensitive search
+        if (schoolName.toLowerCase().includes(schoolSearch.toLowerCase())) {
+          results.push({
+            id: doc.id,
+            schoolName: data.schoolName,
+            teacherName: data.teacherName,
+            teacherPhone: data.teacherPhone,
+            city: data.city,
+            state: data.state
+          });
+        }
+      });
+      
+      setSearchResults(results);
+      setShowResults(true);
+      
+      if (results.length === 0) {
+        setError('No schools found. Please check the spelling or register your school first.');
+      }
+    } catch (err) {
+      console.error('Error searching schools:', err);
+      setError('Failed to search schools. Please try again.');
+    } finally {
+      setSearching(false);
+    }
+  };
+
+  const handleSelectSchool = (school) => {
+    setFormData({
+      ...formData,
+      school: school.schoolName,
+      teacherName: school.teacherName || '',
+      teacherPhone: (school.teacherPhone || '').replace(/\D/g, '').slice(-10)
+    });
+    setSchoolSearch('');
+    setShowResults(false);
+    setSearchResults([]);
   };
 
   const handleReview = (e) => {
@@ -187,20 +248,73 @@ const CompleteRegistration = ({ images }) => {
                 </div>
               </div>
 
-              {/* School */}
+              {/* School with Search */}
               <div>
                 <label className="block text-gray-300 text-sm font-medium mb-2">
                   School Name *
                 </label>
-                <input
-                  type="text"
-                  name="school"
-                  value={formData.school}
-                  onChange={handleChange}
-                  className="w-full p-3 rounded-lg bg-gray-800 bg-opacity-50 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Enter your school name"
-                  required
-                />
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={schoolSearch}
+                      onChange={(e) => setSchoolSearch(e.target.value)}
+                      className="flex-1 p-3 rounded-lg bg-gray-800 bg-opacity-50 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Search for your school"
+                      onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleSearchSchools())}
+                    />
+                    <button
+                      type="button"
+                      onClick={handleSearchSchools}
+                      disabled={searching}
+                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition duration-200 disabled:opacity-50 flex items-center gap-2"
+                    >
+                      {searching ? (
+                        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                      ) : (
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                      )}
+                      Search
+                    </button>
+                  </div>
+                  
+                  {/* Search Results Dropdown */}
+                  {showResults && searchResults.length > 0 && (
+                    <div className="bg-gray-800 border border-gray-600 rounded-lg max-h-60 overflow-y-auto">
+                      {searchResults.map((school) => (
+                        <button
+                          key={school.id}
+                          type="button"
+                          onClick={() => handleSelectSchool(school)}
+                          className="w-full text-left p-3 hover:bg-gray-700 border-b border-gray-700 last:border-b-0 transition duration-150"
+                        >
+                          <div className="text-white font-semibold">{school.schoolName}</div>
+                          <div className="text-gray-400 text-sm">Teacher: {school.teacherName || 'N/A'}</div>
+                          <div className="text-gray-500 text-xs">{school.city}, {school.state}</div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                  
+                  {/* Manual Entry */}
+                  <div>
+                    <input
+                      type="text"
+                      name="school"
+                      value={formData.school}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg bg-gray-800 bg-opacity-50 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Or enter manually"
+                      required
+                    />
+                    <p className="text-gray-500 text-xs mt-1">Search above or type your school name manually</p>
+                  </div>
+                </div>
               </div>
 
               {/* Class, State, City */}

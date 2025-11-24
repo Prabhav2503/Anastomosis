@@ -1,10 +1,12 @@
 import React from 'react';
 import Card from '../components/infocard';
 import { FileDown,CalendarArrowDown  } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import timelinePDF from '../assets/docs/ANASTOMOSIS_TIMELINE.pdf';
 import brochurePDF from '../assets/docs/brochure_Anastomosis.pdf';
 
 const Infopage = ({ images }) => {
+  const navigate = useNavigate();
   const [isVisible, setIsVisible] = React.useState(false);
   
     React.useEffect(() => {
@@ -53,7 +55,7 @@ const Infopage = ({ images }) => {
       {/* Header Section */}
       <header className="flex flex-col md:flex-row items-center mb-8 text-center md:text-left">
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 tracking-tight text-center">
-          WHAT IS ANASTOMOSIS
+          WHAT IS ANASTOMOSIS ?
         </h1>
       </header>
       <div className="w-24 h-1 bg-gray-300 mx-auto mb-8"></div>
@@ -121,6 +123,16 @@ const Infopage = ({ images }) => {
 
 
   </div>
+</div>
+
+{/* Register Now Button */}
+<div className="w-full max-w-4xl mt-12 px-4 flex justify-center">
+  <button
+    onClick={() => navigate('/register')}
+    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-xl md:text-2xl font-bold py-5 px-12 rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 transform"
+  >
+    Register Now
+  </button>
 </div>
 
 

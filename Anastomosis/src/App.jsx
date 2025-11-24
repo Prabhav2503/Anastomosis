@@ -8,6 +8,7 @@ import Infopage from './pages/Infopage.jsx';
 import Whypage from "./pages/whypage.jsx";
 import Glimpse from "./pages/glimpse.jsx"
 import RegistrationPage from './pages/registeration-new.jsx';
+import RegisterSchool from './pages/RegisterSchool.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import CompleteRegistration from './pages/CompleteRegistration.jsx';
 import Confirmation from './pages/Confirmation.jsx';
@@ -56,6 +57,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegistrationPage images={images} />} />
+          <Route path="/register-school" element={<RegisterSchool images={images} />} />
           <Route path="/resources" element={<Resources images={images} />} />
           <Route 
             path="/dashboard" 

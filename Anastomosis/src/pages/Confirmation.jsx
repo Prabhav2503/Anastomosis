@@ -32,7 +32,9 @@ const Confirmation = ({ images }) => {
         if (regDoc.exists()) {
           setRegistrationData(regDoc.data());
         } else {
-          setError('Registration data not found. Please complete registration first.');
+          // If there's no registration data for this user, send them to complete-registration
+          navigate('/complete-registration');
+          return;
         }
       } catch (err) {
         console.error('Error loading registration:', err);
@@ -162,17 +164,29 @@ const Confirmation = ({ images }) => {
             <div className="text-center md:text-left w-full md:w-auto">
               <p className="text-blue-100 text-xs md:text-sm uppercase tracking-wider mb-2">Registration ID</p>
               <p className="text-2xl md:text-4xl font-bold font-mono tracking-wider break-all">
-                {registrationData.userId.slice(0, 12).toUpperCase()}
+                {(() => {
+                  const idSource = registrationData.userId || registrationData.submittedBy || (user && user.uid) || '';
+                  return (idSource && idSource.toString().slice(0, 12).toUpperCase()) || 'N/A';
+                })()}
               </p>
             </div>
             <div className="text-center md:text-right w-full md:w-auto">
               <p className="text-blue-100 text-xs md:text-sm uppercase tracking-wider mb-2">Registered On</p>
               <p className="text-xl md:text-2xl font-semibold">
-                {new Date(registrationData.createdAt).toLocaleDateString('en-IN', {
-                  year: 'numeric',
-                  month: 'short',
-                  day: 'numeric'
-                })}
+                {(() => {
+                  const raw = registrationData.createdAt;
+                  let dateObj = null;
+                  if (!raw) return 'N/A';
+                  if (raw.toDate) {
+                    dateObj = raw.toDate();
+                  } else if (typeof raw === 'number') {
+                    dateObj = new Date(raw);
+                  } else {
+                    dateObj = new Date(raw);
+                  }
+                  if (isNaN(dateObj.getTime())) return 'N/A';
+                  return dateObj.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+                })()}
               </p>
             </div>
           </div>
@@ -206,14 +220,14 @@ const Confirmation = ({ images }) => {
 
           <div className={`px-6 pb-6 border-t-2 border-gray-100 print:block print:show-content ${expandedSections.student ? '' : 'hidden'}`}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
-              <DetailCard label="Full Name" value={registrationData.fullName} />
-              <DetailCard label="Email Address" value={registrationData.email} />
-              <DetailCard label="Phone Number" value={registrationData.phoneNumber} />
-              {registrationData.alternatePhone && (
-                <DetailCard label="Alternate Phone" value={registrationData.alternatePhone} />
+              <DetailCard label="Full Name" value={registrationData.fullName || registrationData.teacherName || registrationData.contactName || 'N/A'} />
+              <DetailCard label="Email Address" value={registrationData.email || registrationData.schoolEmail || 'N/A'} />
+              <DetailCard label="Phone Number" value={registrationData.phoneNumber || registrationData.schoolPhone || registrationData.teacherPhone || 'N/A'} />
+              {(registrationData.alternatePhone || registrationData.teacherPhone) && (
+                <DetailCard label="Alternate Phone" value={registrationData.alternatePhone || registrationData.teacherPhone} />
               )}
-              <DetailCard label="Class" value={`Class ${registrationData.class}`} />
-              <DetailCard label="School" value={registrationData.school} fullWidth />
+              <DetailCard label="Class" value={registrationData.class ? `Class ${registrationData.class}` : (registrationData.studentsCount ? `${registrationData.studentsCount} students (est.)` : 'N/A')} />
+              <DetailCard label="School" value={registrationData.school || registrationData.schoolName || 'N/A'} fullWidth />
             </div>
           </div>
         </div>
