@@ -6,7 +6,11 @@ const PhasesPage = ({ images }) => {
     <div className="w-full h-full p-6 flex flex-col gap-12 items-center bg-gradient-to-br from-[#000046b3] via-[#072D6D] via-73-[#0E5B93] to-[#2F67DA]">
       {/* Phase 1 */}
       <div className="flex flex-col lg:flex-row items-center gap-6 w-full">
-        <img src={images.phase1} alt="Phase 1" className="w-50 md:w-64 lg:w-80" />
+        <img
+          src={images.phase1}
+          alt="Phase 1"
+          className="w-50 md:w-64 lg:w-80"
+        />
         <PhaseCard
           step1="Your journey begins here — register online and open the door to India’s top innovation and medical campuses."
           step2="Fill in your details and get ready to take the aspirational online quiz that will test your curiosity, creativity, and problem-solving skills."
@@ -20,43 +24,55 @@ const PhasesPage = ({ images }) => {
 
       {/* Phase 2 */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-6 w-full ">
-        <img src={images.phase2} alt="Phase 2" className="w-50 md:w-64 lg:w-80" />
+        <img
+          src={images.phase2}
+          alt="Phase 2"
+          className="w-50 md:w-64 lg:w-80"
+        />
         <PhaseCard
-          step1="Dive deeper into the program with hands-on workshops and interactive sessions."
-          step2="Collaborate with peers and mentors to solve real-world challenges."
-          step3="Showcase your skills and ideas in front of experts."
+          step1="The quiz challenges your all-round abilities, from logical thinking to innovative problem-solving."
+          step2="Top performers will be selected to experience the campus visit and entrepreneurship bootcamp."
+          step3="Gain early exposure to concepts in entrepreneurship, innovation, and design thinking while preparing for the next phase."
           bg1="bg-[#CADBFF]"
           bg2="bg-[#557FD5]"
           bg3="bg-[#2F67DA]"
-          highlight="This is where your ideas come to life!"
+          highlight="Highlight: Showcase your talent and earn a spot among the best young innovators in the country."
         />
       </div>
 
       {/* Phase 3 */}
       <div className="flex flex-col lg:flex-row items-center gap-6 w-full ">
-        <img src={images.phase3} alt="Phase 3" className="w-50 md:w-64 lg:w-80" />
+        <img
+          src={images.phase3}
+          alt="Phase 3"
+          className="w-50 md:w-64 lg:w-80"
+        />
         <PhaseCard
-          step1="Participate in advanced-level challenges and gain deeper insights."
-          step2="Learn from industry leaders and innovators."
-          step3="Get exclusive access to labs and resources."
+          step1="Selected students spend Day 1 at IIT Delhi, exploring innovation labs, attending interactive entrepreneurship workshops, and meeting startup founders."
+          step2="Day 2 at AIIMS Delhi introduces you to medical innovations, healthcare startups, and med-tech solutions shaping the future."
+          step3="Participate in hands-on problem-solving sessions that challenge you to apply what you learn immediately."
           bg1="bg-[#CADBFF]"
           bg2="bg-[#557FD5]"
           bg3="bg-[#2F67DA]"
-          highlight="This phase is all about pushing boundaries."
+          highlight="Highlight: Experience real innovation firsthand and get inspired by India’s brightest minds."
         />
       </div>
 
       {/* Phase 4 */}
       <div className="flex flex-col lg:flex-row-reverse items-center gap-6 w-full">
-        <img src={images.phase4} alt="Phase 4" className="w-50 md:w-64 lg:w-80" />
+        <img
+          src={images.phase4}
+          alt="Phase 4"
+          className="w-50 md:w-64 lg:w-80"
+        />
         <PhaseCard
-          step1="Celebrate your journey with a grand finale event."
-          step2="Receive prestigious certificates and awards."
-          step3="Join the alumni network and stay connected with the community."
+          step1="Top students receive prizes and mentorship sessions with founders and experts."
+          step2="All participants earn prestigious certificates jointly endorsed by IIT Delhi & AIIMS Delhi."
+          step3="Get guidance on how to turn your ideas into realworld projects from experienced mentors."
           bg1="bg-[#CADBFF]"
           bg2="bg-[#557FD5]"
           bg3="bg-[#2F67DA]"
-          highlight="This is your moment to shine!"
+          highlight="Highlight: Celebrate your achievement and showcase your talent on a national platform."
         />
       </div>
     </div>

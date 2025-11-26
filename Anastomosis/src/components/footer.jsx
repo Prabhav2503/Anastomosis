@@ -47,9 +47,9 @@ const Footer = () => {
         <img
         src={logo}
         alt=""
-        className="relative mt-10 lg:mt-0 lg:absolute lg:right-[5%] lg:top-[30%] w-80 lg:w-80 xl:w-100"
+        className="relative mt-10 lg:mt-0 lg:absolute lg:right-[3%] lg:top-[10%] w-80 lg:w-[25%] xl:w-[26%]"
       />
-        <div className="flex flex-col lg:flex-row justify-start gap-8 sm:gap-10 lg:gap-[180px] px-6 sm:px-8 md:px-[66px] pt-12 ">
+        <div className="flex flex-col lg:flex-row justify-start gap-8 sm:gap-10 lg:gap-[120px] xl:gap-[150px] px-6 sm:px-8 md:px-[66px] pt-12 ">
           
           {/* Logo and Social Media */}
           <div className="flex flex-row lg:flex-col items-center justify-center gap-4 sm:gap-6">
