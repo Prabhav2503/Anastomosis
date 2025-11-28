@@ -18,6 +18,7 @@ import Footer from "./components/footer.jsx"
 import {Day1Page,Day2Page} from "./components/days.jsx"
 import NotFound from './pages/NotFound.jsx';
 import TitleSponsor from './components/titlesponsor.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
 
 import bgvideo from './assets/bgvideo.mp4';
 
@@ -56,6 +57,7 @@ export default function App() {
     <AuthProvider>
       <Router>
         <Navbar images={images}  />
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegistrationPage images={images} />} />
