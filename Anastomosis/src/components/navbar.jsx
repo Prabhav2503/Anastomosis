@@ -52,7 +52,7 @@ const Navbar = ({ images }) => {
     <nav className={`fixed top-0 left-0 w-full z-50 shadow transition-colors duration-300 ${
       location.pathname === '/' && !scrolled ? 'bg-transparent' : 'bg-black'
     }`}>
-      <div className="w-full flex items-center justify-between px-4 md:px-12 lg:px-16 h-16 md:h-20 max-w-[100vw] bg-black">
+      <div className="w-full flex items-center justify-between px-4 md:px-12 lg:px-16 h-16 md:h-24 max-w-[100vw] bg-black">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0 min-w-0">
           <NavLink to="/" className="flex items-center" onClick={() => setOpen(false)}>
