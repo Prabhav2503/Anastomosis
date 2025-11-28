@@ -1,5 +1,4 @@
 import React from "react";
-import PhaseCard from "../components/phasecard";
 import PhaseCardNew from "../components/phasecardnew";
 
 const PhasesPage = ({ images }) => {
