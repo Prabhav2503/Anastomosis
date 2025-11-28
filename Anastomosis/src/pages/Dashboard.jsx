@@ -72,12 +72,7 @@ const Dashboard = ({ images }) => {
     }
   };
 
-  const downloadImage = () => {
-    const link = document.createElement("a");
-    link.href = images.posterImg;
-    link.download = "poster.png"; // filename
-    link.click();
-  };
+  
 
   const steps = [
     {
@@ -258,16 +253,6 @@ const Dashboard = ({ images }) => {
                             ? "Join Now"
                             : "Start"}
                         </button>
-
-                        {/* NEW Button — only for step 1 when completed */}
-                        {step.id === "registration" && step.completed && (
-                            <button
-                              onClick={downloadImage}
-                              className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm"
-                            >
-                              Download Poster
-                            </button>
-                        )}
                       </div>
                     )}
 

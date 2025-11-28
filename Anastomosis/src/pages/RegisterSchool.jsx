@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebase/config";
 import { doc, setDoc, getDoc, serverTimestamp } from "firebase/firestore";
 import { useAuth } from "../context/AuthContext";
-import { Check, OctagonAlert ,Gift   } from 'lucide-react';
+import { Check, OctagonAlert, Gift } from "lucide-react";
 
 const RegisterSchool = ({ images }) => {
   const [form, setForm] = useState({
@@ -58,6 +58,13 @@ const RegisterSchool = ({ images }) => {
       .toLowerCase()
       .replace(/\s+/g, "-")
       .replace(/[^a-z0-9-]/g, "");
+  };
+
+  const downloadImage = () => {
+    const link = document.createElement("a");
+    link.href = images.posterImg;
+    link.download = "poster.png"; // filename
+    link.click();
   };
 
   const handleSubmit = async (e) => {
@@ -184,7 +191,7 @@ const RegisterSchool = ({ images }) => {
               </p>
 
               {registrationData && (
-                <div className="bg-white rounded-lg p-6 text-left mt-4">
+                <div className="bg-white rounded-lg p-6 text-left my-4">
                   <h3 className="text-lg font-semibold text-gray-800 mb-4">
                     Registration Details:
                   </h3>
@@ -215,6 +222,19 @@ const RegisterSchool = ({ images }) => {
                 </div>
               )}
 
+              <button
+                onClick={downloadImage}
+                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-3 py-2 sm:px-4 sm:py-3 rounded-lg font-semibold transition-all duration-200 shadow-md hover:shadow-lg text-sm"
+              >
+                Download Poster
+              </button>
+
+              <p className="text-gray-600 mt-6 text-sm">
+                Kindly circulate the poster below among all your students
+                      and guide them to register. This will help them gain
+                      access to important learning opportunities and
+                      recognition.
+              </p>
               <p className="text-gray-600 mt-6 text-sm">
                 We'll contact you soon at the registered contact details. For
                 any changes or questions, please email us at{" "}
@@ -500,7 +520,10 @@ const RegisterSchool = ({ images }) => {
                   <li className="flex items-start gap-3">
                     <OctagonAlert size={50} color="red" />
                     <div>
-                      Kindly circulate the poster below among all your students and guide them to register. This will help them gain access to important learning opportunities and recognition.
+                      Kindly circulate the poster below among all your students
+                      and guide them to register. This will help them gain
+                      access to important learning opportunities and
+                      recognition.
                     </div>
                   </li>
                 </ul>
