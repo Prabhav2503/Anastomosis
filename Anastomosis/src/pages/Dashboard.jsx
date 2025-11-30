@@ -183,7 +183,7 @@ const Dashboard = ({ images }) => {
               <button
                 onClick={() =>
                   window.open(
-                    "https://tataminiessay.com/?utm_source=paprika&utm_medium=PIL_PVST5",
+                    "https://tataminiessay.com/?utm_source=herody&utm_medium=aff19",
                     "_blank"
                   )
                 }
