@@ -24,6 +24,8 @@ import footerlogo from "../assets/footerlogo.svg";
 import headerlogo from "../assets/headerlogo.svg";
 import pwlogo from "../assets/pwlogo.png";
 import posterImg from "../assets/poster.png";
+import merchandiseman from "../assets/merchandiseman.svg";
+import strawberry from "../assets/strawberry.svg";
 
 
 import img1 from "../assets/gallery/image1.png";
@@ -67,6 +69,8 @@ export const images = {
     headerlogo:headerlogo,
     pwlogo:pwlogo,
     posterImg:posterImg,
+    merchandiseman:merchandiseman,
+    strawberry:strawberry,
 }
 
 

@@ -112,6 +112,12 @@ const Navbar = ({ images }) => {
           >
             Resources
           </NavLink>
+          <NavLink
+            to="/merchandise"
+            className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
+          >
+            Merchandise
+          </NavLink>
         </div>
 
         {/* Right side - Register/Login or Profile Dropdown + Mobile toggle */}
@@ -260,6 +266,13 @@ const Navbar = ({ images }) => {
               className="block text-white font-medium hover:text-gray-300 py-2"
             >
               Resources
+            </NavLink>
+            <NavLink
+              to="/merchandise"
+              onClick={() => setOpen(false)}
+              className="block text-white font-medium hover:text-gray-300 py-2"
+            >
+              Merchandise
             </NavLink>
 
             {user ? (

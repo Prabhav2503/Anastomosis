@@ -19,6 +19,7 @@ import {Day1Page,Day2Page} from "./components/days.jsx"
 import NotFound from './pages/NotFound.jsx';
 import TitleSponsor from './components/titlesponsor.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import Merchandise from './pages/merchandise.jsx';
 
 import bgvideo from './assets/bgvideo.mp4';
 
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="/register" element={<RegistrationPage images={images} />} />
           <Route path="/register-school" element={<RegisterSchool images={images} />} />
           <Route path="/resources" element={<Resources images={images} />} />
+          <Route path="/merchandise" element={<Merchandise images={images} />} />
           <Route 
             path="/dashboard" 
             element={
