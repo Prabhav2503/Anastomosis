@@ -49,6 +49,7 @@ const Merchandise = ({ images }) => {
                 options={{
                   perPage: 4,
                   perMove: 1,
+
                   gap: "1rem",
                   breakpoints: {
                     1024: { perPage: 3 },
@@ -57,8 +58,12 @@ const Merchandise = ({ images }) => {
                   },
                   arrows: true,
                   pagination: false,
+                  loop: true,
+                  
                   drag: "free",
-                  autoplay: false,
+                  autoplay: true,
+                  duration:1000,
+                  interval:3000,
                 }}
                 aria-label="Competition Carousel"
               >

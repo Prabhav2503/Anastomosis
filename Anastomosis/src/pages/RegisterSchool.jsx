@@ -142,19 +142,40 @@ const RegisterSchool = ({ images }) => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-center">
           <div className="lg:col-span-2">
             <div className="flex items-start gap-4">
-              <img
+              {/* <img
                 src={images.logo}
                 alt="Logo"
                 className="h-14 sm:h-16 w-auto object-contain max-w-[180px] hidden sm:block"
-              />
-              <div className="lg:pl-8">
+              /> */}
+              <div className="">
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-800 leading-tight">
                   Register Your School
                 </h1>
-                <p className="text-gray-600 mt-3 max-w-2xl">
-                  Register your school and provide the teacher point-of-contact.
-                  We'll save the details for coordination and communication.
-                </p>
+                <ul className="space-y-4 mt-4">
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span>
+                      Register your school and provide the teacher
+                      point-of-contact. We'll save the details for coordination
+                      and communication.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span>
+                      Registering as a school is completely optional —
+                      participation can happen individually as well.
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <span className="mt-1.5 w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span>
+                      Schools that register will receive additional benefits
+                      like school-wise rankings, participation certificates, and
+                      coordinated support.
+                    </span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -230,10 +251,9 @@ const RegisterSchool = ({ images }) => {
               </button>
 
               <p className="text-gray-600 mt-6 text-sm">
-                Kindly circulate the poster below among all your students
-                      and guide them to register. This will help them gain
-                      access to important learning opportunities and
-                      recognition.
+                Kindly circulate the poster below among all your students and
+                guide them to register. This will help them gain access to
+                important learning opportunities and recognition.
               </p>
               <p className="text-gray-600 mt-6 text-sm">
                 We'll contact you soon at the registered contact details. For
@@ -497,26 +517,10 @@ const RegisterSchool = ({ images }) => {
 
             <aside className="flex flex-col gap-8">
               <div className="bg-white rounded-2xl border border-gray-200 p-4 shadow-sm lg:sticky lg:top-28 lg:max-w-[320px] lg:self-start">
-                <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                <h3 className="text-lg font-semibold text-red-600 mb-3">
                   Important
                 </h3>
-                <ul className="space-y-3 text-gray-600 text-sm">
-                  <li className="flex items-start gap-3">
-                    <Check size={30} color="green" />
-                    <div>
-                      Registering as a school is completely optional —
-                      participation can happen individually as well.
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <Gift size={50} color="blue" />
-                    <div>
-                      Schools that register will receive additional benefits
-                      like school-wise rankings, participation certificates, and
-                      coordinated support.
-                    </div>
-                  </li>
+                <ul className="space-y-3 text-gray-600 text-sm font-semibold">
                   <li className="flex items-start gap-3">
                     <OctagonAlert size={50} color="red" />
                     <div>
@@ -525,6 +529,9 @@ const RegisterSchool = ({ images }) => {
                       access to important learning opportunities and
                       recognition.
                     </div>
+                  </li>
+                  <li>
+                    <a onClick={downloadImage} className="text-blue-600 underline font-bold cursor-pointer"> Download Poster</a>
                   </li>
                 </ul>
               </div>

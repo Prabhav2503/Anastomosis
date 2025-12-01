@@ -104,7 +104,7 @@ const Infopage = ({ images }) => {
   onClick={() => handleDownload(brochurePDF, "Anastomosis_Brochure.pdf")}
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600 
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
-             transition-all duration-500 hover:scale-105"
+             transition-all duration-500 hover:scale-105 cursor-pointer"
 >
   <FileDown size={24} color="black" />
   <span className="text-xl">Download Brochure</span>
@@ -115,7 +115,7 @@ const Infopage = ({ images }) => {
   onClick={() => handleDownload(timelinePDF, "Anastomosis_Timeline.pdf")}
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
-             transition-all duration-500 hover:scale-105"
+             transition-all duration-500 hover:scale-105 cursor-pointer"
 >
   <CalendarArrowDown size={24}  color="black"  />
   <span className="text-xl">Download Timeline</span>
@@ -129,7 +129,7 @@ const Infopage = ({ images }) => {
 <div className="w-full max-w-4xl mt-12 px-4 flex justify-center">
   <button
     onClick={() => navigate('/register')}
-    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-xl md:text-2xl font-bold py-5 px-12 rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 transform"
+    className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-xl md:text-2xl font-bold py-5 px-12 rounded-2xl shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 transform cursor-pointer"
   >
     Register Now
   </button>

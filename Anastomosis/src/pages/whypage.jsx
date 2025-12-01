@@ -73,7 +73,7 @@ const WhyJoinPage = ({images}) => {
         <Card
           icon={images.win}
           title="Win"
-          description="Prizes, get mentorship, and earn national-level recognition for your talent and  ideas."
+          description="Prizes worth ₹5Lakh+, a chance to win an iPad and get access to the best mentors in the country."
         />
       </div>
     </div>
