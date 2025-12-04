@@ -69,7 +69,7 @@ const iitdcollection = ({images}) => {
   return (
     <div className='flex flex-col items-center justify-center mt-40'>
 
-        <h2 className='text-black font-bold text-5xl '>IIT DELHI COLLECTIONS</h2>
+        <h2 className='text-black font-bold text-2xl sm:text-3xl md:text-5xl '>IIT DELHI COLLECTIONS</h2>
         <div className="mt-10 w-full py-16 px-16">
                 <Splide
                   options={{

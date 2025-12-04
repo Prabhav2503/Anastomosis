@@ -65,7 +65,7 @@ const Collection = ({ title, link }) => {
       <div className=" flex items-center justify-end  ">
         <img src={SingleHoodie} alt="" className="size-128" />
       </div>
-      <div className="absolute rounded-2xl bg-gradient-to-b from-[#082AE7] to-[#051672] top-0 w-full h-full opacity-[85%] text-white font-extrabold text-7xl flex items-end p-10">
+      <div className="absolute rounded-2xl bg-gradient-to-b from-[#082AE7] to-[#051672] top-0 w-full h-full opacity-[85%] text-white font-extrabold text-4xl md:text-5xl lg:text-7xl flex items-end p-10">
         {title} <br /> COLLECTION{" "}
       </div>
     </div>
@@ -90,7 +90,7 @@ const Merchandise = ({images}) => {
         <div className=" flex items-center justify-center  ">
           <img src={MultipleHoodie} alt="" className="size-230" />
         </div>
-        <div className="absolute rounded-2xl bg-gradient-to-b from-[#082AE7] to-[#051672] top-0 w-full h-full opacity-[85%] text-white font-extrabold text-5xl flex items-center justify-center">
+        <div className="absolute rounded-2xl bg-gradient-to-b from-[#082AE7] to-[#051672] top-0 w-full h-full opacity-[85%] text-white font-extrabold text-lg sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center">
           {" "}
           WEAR THE SPIRIT OF ANASTOMOSIS
         </div>
@@ -98,7 +98,7 @@ const Merchandise = ({images}) => {
       {/* heading1 */}
       <div className="flex items-center justify-center mt-10 w-full px-10">
         <h2
-          className="text-[#061A8B] font-bold text-5xl whitespace-nowrap flex-none"
+          className="text-[#061A8B] font-bold text-2xl sm:text-5xl md:text-4xl lg:text-5xl whitespace-nowrap flex-none"
           style={{ fontFamily: "Poppins" }}
         >
           OUR COLLECTIONS
@@ -114,7 +114,7 @@ const Merchandise = ({images}) => {
       {/* heading2 */}
       <div className="flex items-center justify-center mt-10 w-full px-10">
         <h2
-          className="text-[#061A8B] font-bold text-5xl whitespace-nowrap flex-none"
+          className="text-[#061A8B] font-bold text-2xl sm:text-5xl md:text-4xl lg:text-5xl whitespace-nowrap flex-none"
           style={{ fontFamily: "Poppins" }}
         >
           BROWSE ALL MERCH

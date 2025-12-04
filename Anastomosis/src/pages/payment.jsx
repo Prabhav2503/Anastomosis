@@ -172,7 +172,7 @@ export default function ProductDetail() {
             </div>
 
             {/* Price & Buy Button */}
-            <div className="flex items-center justify-between mb-10">
+            <div className="flex md:flex-row flex-col gap-5 items-center justify-between mb-10">
               <div>
                 <span className="text-3xl font-bold text-gray-900">
                   ₹{state.price}
