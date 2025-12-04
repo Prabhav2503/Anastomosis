@@ -27,6 +27,10 @@ import posterImg from "../assets/poster.png";
 import merchandiseman from "../assets/merchandiseman.svg";
 import strawberry from "../assets/strawberry.svg";
 
+import Alchemist from "../assets/take-test/alchemist_spirit.svg";
+import Builder from "../assets/take-test/builder_spirit.svg";
+import Catalyst from "../assets/take-test/catalyst_spirit.svg";
+import Visionary from "../assets/take-test/visionary_spirit.svg";
 
 import img1 from "../assets/gallery/image1.png";
 import img2 from "../assets/gallery/image2.png";
@@ -71,8 +75,11 @@ export const images = {
     posterImg:posterImg,
     merchandiseman:merchandiseman,
     strawberry:strawberry,
+    Alchemist:Alchemist,
+    Builder:Builder,
+    Catalyst:Catalyst,
+    Visionary:Visionary
 }
-
 
 export const galleryImages = [
     img1,

@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Footer from "../components/footer";
 
 import { Star, ShoppingCart } from "lucide-react";
 
-export default function ProductDetail() {
+export default function ProductDetail({images}) {
   const {state} = useLocation();
+  const navigate =  useNavigate();
   const [selectedImage, setSelectedImage] = useState(state?.images[0]);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
@@ -20,7 +22,7 @@ export default function ProductDetail() {
   }
 
   return (
-    <div className="mt-30 p-6 font-sans bg-white">
+    <div className="mt-30 px-6 font-sans bg-white">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12  rounded-2xl p-8 lg:p-12">
         {/* Left: Images */}
         <div className="space-y-6">
@@ -141,7 +143,7 @@ export default function ProductDetail() {
               <h3 className="text-xl font-bold mb-2">
                 Take a quick Personality Test and Find Your Spirit
               </h3>
-              <button className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+              <button onClick={() => navigate('/take-test')} className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
                 Take Test
               </button>
             </div>
@@ -241,6 +243,9 @@ export default function ProductDetail() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full">
+        <Footer images={images}/>
       </div>
     </div>
   );

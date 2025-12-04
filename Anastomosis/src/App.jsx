@@ -24,7 +24,8 @@ import Sponsor from './pages/sponsor.jsx';
 import AiimsCollection from   './pages/Aiimscollection.jsx';
 import IitCollection from   './pages/Iitdcollection.jsx';
 import PaymentPage from './pages/payment.jsx';
-
+import TakeTest from './pages/take-test.jsx';
+import Questionary from  './pages/questionary.jsx';
 import bgvideo from './assets/bgvideo.mp4';
 
 import {images, galleryImages} from "./utility/images"
@@ -72,6 +73,9 @@ export default function App() {
           <Route path="/aiims-delhi-collection" element={<AiimsCollection images={images} />} />
           <Route path="/iit-delhi-collection" element={<IitCollection images={images} />} />
           <Route path="/payment" element={<PaymentPage images={images} />} />
+          <Route path="/take-test" element={<TakeTest images={images} />} />
+          <Route path="/start-test" element={<Questionary images={images} />} />
+
 
           <Route path="/sponsor" element={<Sponsor images={images} />} />
           <Route 
