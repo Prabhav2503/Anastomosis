@@ -61,7 +61,7 @@ const Navbar = ({ images }) => {
         </div>
 
         {/* Desktop links - Centered */}
-        <div className="hidden md:flex items-center justify-center flex-1 space-x-10 lg:space-x-12">
+        <div className="hidden lg:flex items-center justify-center flex-1 space-x-10 lg:space-x-12">
           {navLinks.map(({ to, label }) => (
             location.pathname === '/' ? (
               <ScrollLink
@@ -112,12 +112,12 @@ const Navbar = ({ images }) => {
           >
             Resources
           </NavLink>
-          {/* <NavLink
+          <NavLink
             to="/merchandise"
             className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
           >
             Merchandise
-          </NavLink> */}
+          </NavLink>
           <NavLink
             to="/sponsor"
             className="text-white font-semibold text-sm lg:text-base hover:text-gray-300 cursor-pointer uppercase tracking-wide"
@@ -131,7 +131,7 @@ const Navbar = ({ images }) => {
           {user ? (
             <>
               {/* Desktop - Profile Dropdown */}
-              <div className="hidden md:block relative">
+              <div className="hidden lg:block relative">
                 <button
                   onClick={() => setProfileOpen(!profileOpen)}
                   className="flex items-center gap-2 bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-4 py-2 rounded-md font-semibold transition-colors"
@@ -178,7 +178,7 @@ const Navbar = ({ images }) => {
               {/* Desktop - Register */}
               <NavLink
                 to="/register"
-                className="hidden md:inline-block bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-6 py-2 rounded-md font-semibold uppercase tracking-wide transition-colors"
+                className="hidden lg:inline-block bg-transparent border-2 border-white hover:bg-white hover:text-black text-white px-6 py-2 rounded-md font-semibold uppercase tracking-wide transition-colors"
               >
                 Register
               </NavLink>
@@ -186,7 +186,7 @@ const Navbar = ({ images }) => {
               {/* Mobile - Register */}
               <NavLink
                 to="/register"
-                className="md:hidden bg-blue-600 hover:bg-blue-700 text-white px-2 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
+                className="lg:hidden bg-blue-600 hover:bg-blue-700 text-white px-2 sm:px-3 py-1.5 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap"
               >
                 Register
               </NavLink>
@@ -194,7 +194,7 @@ const Navbar = ({ images }) => {
           )}
 
           <button
-            className="md:hidden text-white p-2 rounded-md focus:outline-none"
+            className="lg:hidden text-white p-2 rounded-md focus:outline-none"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -214,7 +214,7 @@ const Navbar = ({ images }) => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-black border-t border-gray-800 overflow-x-hidden">
+        <div className="lg:hidden bg-black border-t border-gray-800 overflow-x-hidden">
           <div className="px-4 pt-3 pb-4 space-y-1 max-w-full">
             {navLinks.map(({ to, label }) => (
               location.pathname === '/' ? (
@@ -273,13 +273,13 @@ const Navbar = ({ images }) => {
             >
               Resources
             </NavLink>
-            {/* <NavLink
+            <NavLink
               to="/merchandise"
               onClick={() => setOpen(false)}
               className="block text-white font-medium hover:text-gray-300 py-2"
             >
               Merchandise
-            </NavLink> */}
+            </NavLink>
             <NavLink
               to="/sponsor"
               onClick={() => setOpen(false)}

@@ -21,6 +21,8 @@ import TitleSponsor from './components/titlesponsor.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import Merchandise from './pages/merchandise.jsx';
 import Sponsor from './pages/sponsor.jsx';
+import AiimsCollection from   './pages/Aiimscollection.jsx';
+import IitCollection from   './pages/Iitdcollection.jsx';
 
 import bgvideo from './assets/bgvideo.mp4';
 
@@ -66,6 +68,9 @@ export default function App() {
           <Route path="/register-school" element={<RegisterSchool images={images} />} />
           <Route path="/resources" element={<Resources images={images} />} />
           <Route path="/merchandise" element={<Merchandise images={images} />} />
+          <Route path="/aiims-delhi-collection" element={<AiimsCollection images={images} />} />
+          <Route path="/iit-delhi-collection" element={<IitCollection images={images} />} />
+
           <Route path="/sponsor" element={<Sponsor images={images} />} />
           <Route 
             path="/dashboard" 
