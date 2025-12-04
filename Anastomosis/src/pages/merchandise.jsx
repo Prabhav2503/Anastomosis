@@ -5,19 +5,26 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import SingleHoodie from "../assets/singlehoodie.svg";
 import CompleteHoodie from "../assets/completehoodie.svg";
-
 import MultipleHoodie from "../assets/3hoodie.svg";
 
 
 
-const Itemcard = ({ image, title, price }) => {
+const Itemcard = ({ images, title, price,id }) => {
+  const navigate = useNavigate();
   return (
-    <div className="w-full max-w-sm mx-auto font-sans cursor-pointer">
+    <div onClick={() => (navigate("/payment", {
+      state:{
+        id:id,
+        name:title,
+        price:price,
+        images:images
+      }
+    }))} className="w-full max-w-sm mx-auto font-sans cursor-pointer" >
   <div className=" shadow-lg rounded-lg overflow-hidden">
     {/* Product Image */}
     <div className="bg-white p-8">
       <img
-        src={image}
+        src={images[0]}
         alt="Hoodie"
         className="w-full h-auto object-contain"/>
     </div>
@@ -65,15 +72,15 @@ const Collection = ({ title, link }) => {
   );
 };
 
-const Merchandise = ({ images }) => {
+const Merchandise = ({images}) => {
   const merchandiseItems = [
-    { title: "Strawberry Pancake", price: "28,000" },
-    { title: "Blueberry Waffle", price: "32,000" },
-    { title: "Chocolate Donut", price: "25,000" },
-    { title: "Vanilla Cupcake", price: "22,000" },
-    { title: "Matcha Latte", price: "30,000" },
-    { title: "Caramel Frappé", price: "35,000" },
-    { title: "Rainbow Cake", price: "45,000" },
+    { title: "Strawberry Pancake", price: "28,000" , images:[CompleteHoodie], id:1},
+    { title: "Blueberry Waffle", price: "32,000", images:[CompleteHoodie], id:2 },
+    { title: "Chocolate Donut", price: "25,000", images:[CompleteHoodie], id:3 },
+    { title: "Vanilla Cupcake", price: "22,000", images:[CompleteHoodie], id:4 },
+    { title: "Matcha Latte", price: "30,000", images:[CompleteHoodie], id:5 },
+    { title: "Caramel Frappé", price: "35,000", images:[CompleteHoodie], id:6 },
+    { title: "Rainbow Cake", price: "45,000", images:[CompleteHoodie], id:7 },
   ];
 
   return (
@@ -88,7 +95,7 @@ const Merchandise = ({ images }) => {
           WEAR THE SPIRIT OF ANASTOMOSIS
         </div>
       </div>
-
+      {/* heading1 */}
       <div className="flex items-center justify-center mt-10 w-full px-10">
         <h2
           className="text-[#061A8B] font-bold text-5xl whitespace-nowrap flex-none"
@@ -99,12 +106,12 @@ const Merchandise = ({ images }) => {
 
         <div className="h-0.5 bg-black flex-grow ml-4 hidden md:block" />
       </div>
-
+      {/* collections */}
       <div className="flex flex-col md:flex-row items-center justify-center gap-10 w-full p-10">
         <Collection title="AIIMS DELHI" link="/aiims-delhi-collection"/>
         <Collection title="IIT DELHI" link="/iit-delhi-collection"/>
       </div>
-
+      {/* heading2 */}
       <div className="flex items-center justify-center mt-10 w-full px-10">
         <h2
           className="text-[#061A8B] font-bold text-5xl whitespace-nowrap flex-none"
@@ -140,20 +147,21 @@ const Merchandise = ({ images }) => {
           }}
           aria-label="Competition Carousel"
         >
-          {merchandiseItems.map(({ title, price }, idx) => (
+          {merchandiseItems.map(({ title, price, images,id }, idx) => (
             <SplideSlide key={idx}>
               <div className="px-2">
                 <Itemcard
-                  image={CompleteHoodie}
+                  images={images}
                   title={title}
                   price={price}
+                  id={id}
                 />
               </div>
             </SplideSlide>
           ))}
         </Splide>
       </div>
-
+          {/* Footer */}
       <div className="w-full ">
         <Footer images={images} />
       </div>

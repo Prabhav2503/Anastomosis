@@ -3,16 +3,25 @@ import Footer from "../components/footer";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import CompleteHoodie from "../assets/completehoodie.svg";
+import { useNavigate } from 'react-router-dom';
 
 
-const Itemcard = ({ image, title, price }) => {
+const Itemcard = ({ images, title, price,id }) => {
+  const navigate = useNavigate();
   return (
-    <div className="w-full max-w-sm mx-auto font-sans cursor-pointer">
+    <div onClick={() => (navigate("/payment",{
+      state:{
+        id:id,
+        name:title,
+        images:images,
+        price:price
+      }
+    }))} className="w-full max-w-sm mx-auto font-sans cursor-pointer">
   <div className=" shadow-lg rounded-lg overflow-hidden">
     {/* Product Image */}
     <div className="bg-white p-8">
       <img
-        src={image}
+        src={images[0]}
         alt="Hoodie"
         className="w-full h-auto object-contain"/>
     </div>
@@ -46,15 +55,14 @@ const Itemcard = ({ image, title, price }) => {
 };
 
 const merchandiseItems = [
-    { title: "Strawberry Pancake", price: "28,000" },
-    { title: "Blueberry Waffle", price: "32,000" },
-    { title: "Chocolate Donut", price: "25,000" },
-    { title: "Vanilla Cupcake", price: "22,000" },
-    { title: "Matcha Latte", price: "30,000" },
-    { title: "Caramel Frappé", price: "35,000" },
-    { title: "Rainbow Cake", price: "45,000" },
+    { title: "Strawberry Pancake", price: "28,000" , images:[CompleteHoodie], id:1},
+    { title: "Blueberry Waffle", price: "32,000", images:[CompleteHoodie], id:2 },
+    { title: "Chocolate Donut", price: "25,000", images:[CompleteHoodie], id:3 },
+    { title: "Vanilla Cupcake", price: "22,000", images:[CompleteHoodie], id:4 },
+    { title: "Matcha Latte", price: "30,000", images:[CompleteHoodie], id:5 },
+    { title: "Caramel Frappé", price: "35,000", images:[CompleteHoodie], id:6 },
+    { title: "Rainbow Cake", price: "45,000", images:[CompleteHoodie], id:7 },
   ];
-
 
 const aiimscollection = ({images}) => {
   return (
@@ -84,13 +92,14 @@ const aiimscollection = ({images}) => {
                   }}
                   aria-label="Competition Carousel"
                 >
-                  {merchandiseItems.map(({ title, price }, idx) => (
+                  {merchandiseItems.map(({ title, price,images,id }, idx) => (
                     <SplideSlide key={idx}>
                       <div className="px-2">
                         <Itemcard
-                          image={CompleteHoodie}
+                          images={images}
                           title={title}
                           price={price}
+                          id={id}
                         />
                       </div>
                     </SplideSlide>
