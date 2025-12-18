@@ -226,7 +226,7 @@ const Dashboard = ({ images }) => {
                     <h3 className="text-base sm:text-lg font-bold text-white mb-2">
                       {step.title}
                     </h3>
-                    {step.id === "registration" && registrationMeta && (
+                    {/* {step.id === "registration" && registrationMeta && (
                       <div className="inline-block mb-2">
                         <span className="text-xs font-medium px-2 py-1 rounded-full bg-white/10 text-white">
                           {registrationMeta.type === "school"
@@ -234,7 +234,7 @@ const Dashboard = ({ images }) => {
                             : "Registered"}
                         </span>
                       </div>
-                    )}
+                    )} */}
                     <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed min-h-[36px] sm:min-h-[40px]">
                       {step.description}
                     </p>
