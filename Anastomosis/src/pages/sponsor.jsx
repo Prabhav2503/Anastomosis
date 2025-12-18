@@ -4,7 +4,7 @@ import PW from "../assets/sponsors/pw.svg"
 import TATA from    "../assets/sponsors/tata.svg"
 
 const sponsors = [
-    {image: PW},
+    // {image: PW},
     {image: TATA},
 ]
 const sponsor = ({images}) => {
