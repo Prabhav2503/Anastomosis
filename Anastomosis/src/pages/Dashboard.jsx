@@ -174,7 +174,7 @@ const Dashboard = ({ images }) => {
             </div>
 
             {/* Banner */}
-            <div className="mb-6 sm:mb-8 rounded-lg overflow-hidden shadow-xl relative group">
+            {/* <div className="mb-6 sm:mb-8 rounded-lg overflow-hidden shadow-xl relative group">
               <img
                 src={tataBanner}
                 alt="Anastomosis Banner"
@@ -191,7 +191,7 @@ const Dashboard = ({ images }) => {
               >
                 Take the Pledge
               </button>
-            </div>
+            </div> */}
 
             {/* Steps - Grid Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
