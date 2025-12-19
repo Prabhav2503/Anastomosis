@@ -35,6 +35,7 @@ const Infopage = ({ images }) => {
   
   
   const handleDownload = (file, filename) => {
+    console.log("Downloading:", filename);
     const link = document.createElement("a");
     link.href = file;
     link.download = filename;
@@ -102,14 +103,14 @@ const Infopage = ({ images }) => {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
 
     {/* Brochure Button */}
-    {/* Brochure Button */}
+
 <button
   onClick={() => handleDownload(brochurePDF, "Anastomosis_Brochure.pdf")}
 
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600 
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
-             transition-all duration-500 hover:scale-105 cursor-default"
-  disabled
+             transition-all duration-500 hover:scale-105 cursor-pointer"
+  
 >
   <FileDown size={24} color="black" />
   <span className="text-xl">Download Brochure</span>
@@ -121,8 +122,8 @@ const Infopage = ({ images }) => {
 
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
-             transition-all duration-500 hover:scale-105 cursor-default"
-  disabled
+             transition-all duration-500 hover:scale-105 cursor-pointer"
+  
 >
   <CalendarArrowDown size={24}  color="black"  />
   <span className="text-xl">Download Timeline</span>
