@@ -34,9 +34,8 @@ const Resources = ({ images }) => {
     };
   }, []);
 
-  // Temporarily hide these two documents; keep objects here for easy re-enable
   const documents = [
-    /*
+    
     {
       id: 1,
       name: 'Event Timeline',
@@ -51,7 +50,7 @@ const Resources = ({ images }) => {
       fileUrl: brochurePDF,
       category: 'Brochure',
     },
-    */
+    
   ];
 
   const handleDownload = (fileUrl, fileName) => {

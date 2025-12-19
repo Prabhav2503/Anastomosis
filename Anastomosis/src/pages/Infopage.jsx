@@ -2,8 +2,8 @@ import React from 'react';
 import Card from '../components/infocard';
 import { FileDown,CalendarArrowDown  } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-// import timelinePDF from '../assets/docs/ANASTOMOSIS_TIMELINE.pdf';
-// import brochurePDF from '../assets/docs/brochure_Anastomosis.pdf';
+import timelinePDF from '../assets/docs/ANASTOMOSIS_TIMELINE.pdf';
+import brochurePDF from '../assets/docs/brochure_Anastomosis.pdf';
 
 const Infopage = ({ images }) => {
   const navigate = useNavigate();
@@ -32,8 +32,8 @@ const Infopage = ({ images }) => {
     };
   }, []);
 
-  // Download functionality temporarily disabled
-  /*
+  
+  
   const handleDownload = (file, filename) => {
     const link = document.createElement("a");
     link.href = file;
@@ -42,7 +42,7 @@ const Infopage = ({ images }) => {
     link.click();
     document.body.removeChild(link);
   };
-  */
+  
 
   return (
     <div id="why-section" className="w-full min-h-screen relative bg-white py-20 flex flex-col items-center">
@@ -104,8 +104,8 @@ const Infopage = ({ images }) => {
     {/* Brochure Button */}
     {/* Brochure Button */}
 <button
-  // onClick={() => handleDownload(brochurePDF, "Anastomosis_Brochure.pdf")}
-  // Download temporarily disabled
+  onClick={() => handleDownload(brochurePDF, "Anastomosis_Brochure.pdf")}
+
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600 
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
              transition-all duration-500 hover:scale-105 cursor-default"
@@ -117,8 +117,8 @@ const Infopage = ({ images }) => {
 
 {/* Timeline Button */}
 <button
-  // onClick={() => handleDownload(timelinePDF, "Anastomosis_Timeline.pdf")}
-  // Download temporarily disabled
+  onClick={() => handleDownload(timelinePDF, "Anastomosis_Timeline.pdf")}
+
   className="flex items-center justify-center gap-3 w-full bg-[#DBE7FF] text-blue-600
              py-4 px-6 rounded-2xl font-semibold shadow-lg hover:shadow-2xl 
              transition-all duration-500 hover:scale-105 cursor-default"
