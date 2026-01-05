@@ -141,8 +141,10 @@ const Infopage = ({ images }) => {
   >
     Register Now
   </button>
+  
 </div>
 
+      <p className='pt-10 text-center text-lg md:text-xl text-red-600 font-semibold'>Deadline has been extended till 15 January 2026</p>
 
     </div>
   );

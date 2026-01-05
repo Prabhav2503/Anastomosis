@@ -188,8 +188,11 @@ const CompleteRegistration = ({ images }) => {
             <h2 className="text-3xl font-bold text-white mb-6 text-center">
               Registration Details
             </h2>
-            <p className="text-gray-400 text-center mb-8">
+            <p className="text-gray-400 text-center mb-4">
               Please fill in all the required information
+            </p>
+            <p className="text-gray-400 text-center mb-8">
+              Deadline has been extended till 15 January 2026
             </p>
 
             {/* Error Message */}
